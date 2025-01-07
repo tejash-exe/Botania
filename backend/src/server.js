@@ -11,4 +11,3 @@ connectToDb()
 .catch((error) => {
   console.log(error);
 });
-

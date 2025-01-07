@@ -3,7 +3,7 @@ class ApiResponse {
         this.status = status;
         this.message = message;
         this.data = data;
-    }
+    };
 };
 
 export { ApiResponse };

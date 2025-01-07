@@ -1,19 +1,26 @@
 import mongoose from "mongoose";
 
 const sellerReviewSchema = new mongoose.Schema({
-    seller: {
+    order: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Order",
+        required: [true, 'Error! Must include order!'],
+        unique: [true, 'Error! Must have unique order!'],
+    },
+    soldBy: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Seller",
         required: [true, 'Error! Must include seller!'],
     },
-    user: {
+    product: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Product",
+        required: [true, 'Error! Must include product!'],
+    },
+    madeBy: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "User",
-        required: [true, 'Error! Must include user!'],
-    },
-    subject: {
-        type: String,
-        required:  [true, 'Error! Must include subject!'],
+        required: [true, 'Error! Must include User!'],
     },
     description: {
         type: String,

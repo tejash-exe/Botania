@@ -5,7 +5,7 @@ import { ApiResponse } from "../utils/ApiResponse.js";
 
 const verifyJWTSeller = async (req, res, next) => {
     try {
-        const accessToken = req.cookies?.accessToken || req.header("Authorization")?.replace("Bearer ", "");
+        const accessToken = req.cookies?.selleraccessToken || req.header("Authorization")?.replace("Bearer ", "");
         if(!accessToken) throw new Error("No access token!");
 
         const token = await jwt.verify(accessToken, process.env.SELLER_ACCESS_TOKEN_SECRET);
@@ -17,7 +17,7 @@ const verifyJWTSeller = async (req, res, next) => {
         next();
     } catch (error) {
         try {
-            const refreshToken = req.cookies?.refreshToken || req.body?.refreshToken;
+            const refreshToken = req.cookies?.sellerrefreshToken || req.body?.refreshToken;
             if(!refreshToken) throw new Error("No refresh token!");
 
             const token = await jwt.verify(refreshToken, process.env.SELLER_REFRESH_TOKEN_SECRET);
@@ -31,10 +31,11 @@ const verifyJWTSeller = async (req, res, next) => {
             .catch(error => { throw new Error("Cannot able to generate new access token!")});
 
             req.seller = seller;
-            res.cookie("accessToken", newAccessToken, options);
+            res.cookie("selleraccessToken", newAccessToken, options);
             next();
         } catch (error) {
-            res.json(new ApiResponse(400, error.message));
+            console.log(error.message);
+            res.json(new ApiResponse(469, "Session expired!"));
         };
     };
 };

@@ -20,31 +20,17 @@ const productSchema = new mongoose.Schema({
         max: [5000, 'Error! Price must be less than or equal to 5000'],
         required: [true, 'Error! Must include price'],
     },
-    coverImage: {
-        type: String,
-        required: [true, "Error! Cover image not found"],
-    },
     images: [
         {
             type: String,
             validate: {
                 validator: function(value) {
-                    return this.images.length <= 5;
+                    return this.images.length >= 1 && this.images.length <= 6;
                 },
-                message: 'Error! You can upload a maximum of 5 images!',
+                message: 'Error! You must upload between 1 and 6 images!',
             },
         }
     ],
-    quantity: {
-        type: Number,
-        default: 1,
-        min: [0, 'Error! Quantity must be a non-negative number'],
-        required: [true, 'Error! Must include quantity'],
-    },
-    averageRating: {
-        type: Number,
-        default: 0,
-    },
     soldBy: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Seller',

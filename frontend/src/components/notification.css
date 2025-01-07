@@ -1,0 +1,12 @@
+#notification {
+    animation: launch 200ms ease-out;
+}
+
+@keyframes launch {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

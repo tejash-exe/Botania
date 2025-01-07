@@ -3,21 +3,53 @@ import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 
 const sellerSchema = new mongoose.Schema({
-    verified: {
+    activated: {
         type: Boolean,
         default: false,
     },
+    razorpay: {
+        email:{
+            type: String,
+            unique: [true, 'Error! Email for Razorpay must be unique!'],
+            sparse: true,
+            default: '',
+        },
+        accountId:{
+            type: String,
+            default: "",
+        },
+        stakeholderId:{
+            type: String,
+            default: "",
+        },
+        routeconfigId:{
+            type: String,
+            default: "",
+        },
+        activationStatus:{
+            type: String,
+            default: "",
+        },
+        beneficiary_name:{
+            type: String,
+            default: "",
+        },
+        account_number:{
+            type: String,
+            default: "",
+        },
+        ifsc_code:{
+            type: String,
+            default: "",
+        },
+    },
     brandName:{
         type: String,
-        required: [true, 'Error! Must include Brand name!'],
+        default: '',
     },
     name: {
         type: String,
         required: [true, 'Error! Must include name!'],
-    },
-    contactNo: {
-        type: Number,
-        required: [true, 'Error! Must include contact number!'],
     },
     email: {
         type: String,
@@ -46,6 +78,37 @@ const sellerSchema = new mongoose.Schema({
             ref: "Product",
         }
     ],
+    address: {
+        localAddress: {
+            type: String,
+            required: [true, 'Error! Must include local address!'],
+            default: "NIT",
+        },
+        landmark: {
+            type: String,
+            default: "",
+        },
+        city: {
+            type: String,
+            required: [true, 'Error! Must include city!'],
+            default: "Jamshedpur",
+        },
+        state: {
+            type: String,
+            required: [true, 'Error! Must include state!'],
+            default: "Jharkhand",
+        },
+        pincode: {
+            type: String,
+            required: [true, 'Error! Must include pincode!'],
+            default: '111111',
+        },
+        contact: {
+            type: String,
+            required: [true, 'Error! Must include contact number!'],
+            default: '1111111111',
+        }
+    },
 }, { timestamps: true });
 
 sellerSchema.pre("save", async function (next) {

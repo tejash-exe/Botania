@@ -1,0 +1,13 @@
+/* #filtermenu {
+    animation: launch 200ms ease-out;
+}
+
+@keyframes launch {
+    from {
+        bottom: 4rem;
+    }
+
+    to {
+        bottom: 8rem;
+    }
+} */

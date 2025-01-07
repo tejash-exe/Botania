@@ -1,18 +1,16 @@
-import React, { useEffect } from 'react'
-import Sidenavbar from '../../components/Sidenavbar'
-import { Outlet, useNavigate } from 'react-router-dom'
-import Navbar from '../../components/Navbar'
-import Bottomnavbar from '../../components/Bottomnavbar'
+import React from 'react';
+import { Outlet } from 'react-router-dom';
+import Navbar from '../../components/Navbar';
+import Bottomnavbar from '../../components/Bottomnavbar';
 
-const user = () => {
+const User = () => {
     return (
-        <>
-            <div className='pt-[4rem] sm:pb-[2rem] pb-[4rem] flex box-border w-screen h-screen overflow-hidden'>
-                <Sidenavbar />
-                <Outlet />
-            </div>
-        </>
+        <div>
+            <Navbar/>
+            <Outlet />
+            <Bottomnavbar/>
+        </div>
     )
-}
+};
 
-export default user
+export default User;

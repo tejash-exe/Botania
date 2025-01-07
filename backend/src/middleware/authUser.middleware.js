@@ -34,7 +34,8 @@ const verifyJWTUser = async (req, res, next) => {
             res.cookie("accessToken", newAccessToken, options);
             next();
         } catch (error) {
-            res.json(new ApiResponse(400, error.message));
+            console.log(error.message);
+            res.json(new ApiResponse(469, "Session expired!"));
         };
     };
 };

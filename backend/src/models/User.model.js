@@ -1,7 +1,6 @@
 import mongoose from "mongoose";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
-import addressSchema from "./Address.schema.js";
 
 const userSchema = new mongoose.Schema({
     name: {
@@ -25,38 +24,58 @@ const userSchema = new mongoose.Schema({
         type: String,
         default: "",
     },
+    orderId: {
+        type: String,
+        default: "",
+    },
     wishlist: [
         {
-            product: {
-                type: mongoose.Schema.Types.ObjectId,
-                ref: 'Product',
-            },
-            time: {
-                type: Date,
-            }
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Product',
         }
     ],
     cart: [
         {
-            product: {
-                type: mongoose.Schema.Types.ObjectId,
-                ref: 'Product',
-            },
-            time: {
-                type: Date,
-            },
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Product',
         }
     ],
     address: {
-        type: [addressSchema],
-        validate: {
-            validator: function(value) {
-                return value.length <= 3;
-            },
-            message: 'Error! You can add a maximum of 3 addresses!',
+        localAddress: {
+            type: String,
+            required: [true, 'Error! Must include local address!'],
+            default: "NIT",
         },
+        landmark: {
+            type: String,
+            default: "",
+        },
+        city: {
+            type: String,
+            required: [true, 'Error! Must include city!'],
+            default: "Jamshedpur",
+        },
+        state: {
+            type: String,
+            required: [true, 'Error! Must include state!'],
+            default: "Jharkhand",
+        },
+        pincode: {
+            type: String,
+            required: [true, 'Error! Must include pincode!'],
+            default: '111111',
+        },
+        contact: {
+            type: String,
+            required: [true, 'Error! Must include contact number!'],
+            default: '1111111111',
+        }
     },
 }, { timestamps: true });
+
+userSchema.path('cart').validate(function (value) {
+    return value.length <= 10;
+}, 'Error! Cart cannot have more than 10 items.');
 
 userSchema.pre("save", async function (next) {
     if (this.isModified("password")) {
