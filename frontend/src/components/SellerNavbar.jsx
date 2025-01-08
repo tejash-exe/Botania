@@ -33,10 +33,15 @@ const SellerNavbar = () => {
             })
     };
 
+    //Go to Welcome 
+    const gotoWelcome = () => {
+        navigate('/welcome');
+    };
+
     return (
         <>
             <div className='sm:px-6 px-3 border-b-2 bg-white z-50 h-[4rem] w-screen fixed top-0 left-0 flex items-center justify-between'>
-                <div className='font-bold text-3xl'>Botania<span className='text-sm'>.Seller</span></div>
+                <button onClick={gotoWelcome} className='font-bold text-3xl'>Botania<span className='text-sm'>.Seller</span></button>
                 <div className='sm:flex hidden'>
                     <Link to='/seller/account/profile' className='mx-4 duration-200 cursor-pointer hover:text-black text-green-700'>Profile</Link>
                     <Link to='/seller/account/products' className='mx-4 duration-200 cursor-pointer hover:text-black text-green-700'>Products</Link>
