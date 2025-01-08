@@ -4,7 +4,7 @@ export const AppContext = createContext(" ");
 
 export const AppProvider = ({ children }) => { 
 
-  const backend_url = '';
+  const backend_url = 'https://botania.onrender.com';
 
   //User
   const [isAuth, setisAuth] = useState(JSON.parse(localStorage.getItem("isAuth")) || false);
