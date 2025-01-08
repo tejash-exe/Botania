@@ -5,8 +5,7 @@ import cors from "cors";
 const app = express();
 
 app.use(cors({
-    origin: "*",
-    optionsSuccessStatus: 200,
+    origin: "https://botania-by-aditya.vercel.app/",
     credentials: true,
 }));
 
