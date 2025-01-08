@@ -1,9 +1,9 @@
 {
-    "cleanUrls": true,
-    "rewrites": [
-      {
-        "source": "/:match*",
-        "destination": "/index.html"
-      }
-    ]
-  }
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/:match*",
+      "destination": "/index.html"
+    }
+  ]
+}
