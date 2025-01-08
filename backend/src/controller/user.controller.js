@@ -661,9 +661,9 @@ const confirmOrder = async (req, res) => {
         const savedUser = await updatedUser.save();
         // if (!savedUser) console.log("Cannot able to save user!!");
 
-        res.redirect(`http://localhost:5173/user/payment-success/${razorpay_order_id}/${razorpay_payment_id}`);
+        res.redirect(`${process.env.FRONTEND_URL}/user/payment-success/${razorpay_order_id}/${razorpay_payment_id}`);
     } catch (error) {
-        res.redirect(`http://localhost:5173/user/payment-error/${error.message}`);
+        res.redirect(`${process.env.FRONTEND_URL}/user/payment-error/${error.message}`);
     };
 };
 
