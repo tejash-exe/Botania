@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "node --watch src/server.js",
-    "start": "node server.js"
+    "start": "node src/server.js"
   },
   "author": "",
   "license": "ISC",
