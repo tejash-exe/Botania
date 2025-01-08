@@ -303,7 +303,7 @@ const Cart = () => {
                     <div className='text-2xl text-center my-2'>Please login to continue!</div>
                     <div className='flex justify-center items-center'><button onClick={gotologin} className='hover:scale-105 text-xl backdrop-blur-sm my-2 mx-7 px-4 py-3 rounded-md bg-green-700/60 hover:bg-green-700/80 text-white duration-200'>Log in</button></div>
                 </div>
-                <div className='-z-10 absolute top-0 overflow-hidden'><img className=' h-screen w-screen object-cover' src="./Flowers1.jpg" alt="" /></div>
+                <div className='-z-10 absolute top-0 overflow-hidden'><img className=' h-screen w-screen object-cover' src="/Flowers1.jpg" alt="" /></div>
             </div>}
     </>
     )

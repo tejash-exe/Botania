@@ -11,5 +11,4 @@ export default defineConfig({
     port: 5173, // Optional: ensure the correct port is specified
   },
   plugins: [react()],
-  base: '/welcome/',
 })

@@ -17,7 +17,7 @@ const Welcome = () => {
     <>
       <div className=''>
         <div className='overflow-hidden w-full h-screen flex flex-col justify-center relative'>
-          <img src='./Flowers.jpg' className='w-full z-[-1] top-0 h-full absolute object-cover' />
+          <img src='/Flowers.jpg' className='w-full z-[-1] top-0 h-full absolute object-cover' />
           <div className='flex flex-col justify-center items-center w-screen h-screen'>
             <div className='justify-center p-4 mb-6 flex items-end flex-wrap '>
               <div className='text-5xl pb-1 pr-2 text-gray-700 text-nowrap'>Welcome to</div>
@@ -39,7 +39,7 @@ const Welcome = () => {
         </div>
         <div className='flex flex-col sm:mx-10 mx-4 mt-[6rem] items-center h-[30rem]'>
           <div className='md:max-w-[50rem] w-full relative rounded-3xl overflow-hidden h-full flex justify-center items-center'>
-            <img src="./Flowers9.jpg" alt="" className='absolute z-[-1] object-cover h-full w-full' />
+            <img src="/Flowers9.jpg" alt="" className='absolute z-[-1] object-cover h-full w-full' />
             <div className='backdrop-blur-sm flex bg-white/20 rounded-3xl items-center justify-center sm:mx-10 mx-2'>
               <div className='w-3/5 italic text-white border-r-2 border-black py-4 sm:text-2xl sm:px-10 px-4 sm:my-6 my-3'>"Explore plants lovingly nurtured by passionate sellers who share your love for greenery."</div>
               <div className='w-2/5 flex justify-center items-center'>
@@ -51,7 +51,7 @@ const Welcome = () => {
         <div className='flex flex-col sm:mx-10 mx-4 mt-[6rem] items-center'>
           <div className='md:max-w-[50rem] bg-gray-100 w-full rounded-3xl overflow-hidden h-full flex flex-col sm:flex-row justify-center items-center'>
             <div className='sm:w-3/5 sm:pr-4'>
-              <img src="./Flowers4.jpg" alt="" className=' object-cover rounded-3xl' />
+              <img src="/Flowers4.jpg" alt="" className=' object-cover rounded-3xl' />
             </div>
             <div className='sm:w-2/5 italic md:text-2xl px-4 my-4 sm:my-0'>
               <div className="">"Showcase your plants to a community that values your passion for greenery."</div>

@@ -207,7 +207,7 @@ const LoginRegister = () => {
         </form>
       </div>
       <div className='w-screen h-screen fixed z-[-1] brightness-90'>
-        <img className='min-w-[1400px] w-screen h-screen object-cover' src="./Flowers.jpg" alt="" />
+        <img className='min-w-[1400px] w-screen h-screen object-cover' src="/Flowers.jpg" alt="" />
       </div>
     </div>
   )
