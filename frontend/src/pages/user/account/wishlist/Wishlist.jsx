@@ -357,7 +357,7 @@ const Wishlist = () => {
                             <div className='text-2xl text-center my-2'>An error occured while loading wishlist!</div>
                             <div className='flex justify-center items-center'><button onClick={handlereload} className='hover:scale-105 text-xl backdrop-blur-sm my-2 mx-7 px-4 py-3 rounded-md bg-green-700/60 hover:bg-green-700/80 text-white duration-200'><FontAwesomeIcon className='mr-2' icon={faRotateRight} />Refresh</button></div>
                         </div>
-                        <div className='-z-10 absolute top-0 overflow-hidden'><img className=' h-screen w-screen object-cover' src="/Flowers3.jpg" alt="" /></div>
+                        <div className='-z-10 absolute top-0 overflow-hidden'><img className=' h-screen w-screen object-cover' src="./Flowers3.jpg" alt="" /></div>
                     </div>}
                 </div>
                 {isVisible && <div onClick={scrollToTop} className='fixed z-[101] sm:bottom-10 bottom-[5rem] sm:right-10 right-[1rem] bg-green-700 hover:bg-green-700/90 duration-200 active:scale-95 rounded-full p-3  cursor-pointer flex justify-center items-center'>
@@ -368,7 +368,7 @@ const Wishlist = () => {
                     <div className='text-2xl text-center my-2'>Please login to continue!</div>
                     <div className='flex justify-center items-center'><button onClick={gotologin} className='hover:scale-105 text-xl backdrop-blur-sm my-2 mx-7 px-4 py-3 rounded-md bg-green-700/60 hover:bg-green-700/80 text-white duration-200'>Log in</button></div>
                 </div>
-                <div className='-z-10 absolute top-0 overflow-hidden'><img className=' h-screen w-screen object-cover' src="/Flowers1.jpg" alt="" /></div>
+                <div className='-z-10 absolute top-0 overflow-hidden'><img className=' h-screen w-screen object-cover' src="./Flowers1.jpg" alt="" /></div>
             </div>}
         </>
     )

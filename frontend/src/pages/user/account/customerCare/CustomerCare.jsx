@@ -8,10 +8,10 @@ const CustomerCare = () => {
 
   return (
     <div className='flex-1 flex justify-center items-center overflow-hidden'>
-      <img className='z-[-1] object-cover h-screen w-full fixed top-0 left-0' src="/Flowers2.jpg" alt="" />
+      <img className='z-[-1] object-cover h-screen w-full fixed top-0 left-0' src="./Flowers2.jpg" alt="" />
       <div className='flex flex-col justify-center items-center backdrop-blur-sm bg-white/40 sm:p-8 p-4 m-4 rounded-2xl shadow-lg'>
         <div className='overflow-hidden w-[10rem] h-[10rem] rounded-full hover:scale-105 duration-500'>
-          <img className='object-contain ' src="/aditya.jpg" alt="" />
+          <img className='object-contain ' src="./aditya.jpg" alt="" />
         </div>
         <div className='mb-8 mt-4 text-xl font-semibold'>Aditya Choudhary</div>
         <div className='flex flex-col'>

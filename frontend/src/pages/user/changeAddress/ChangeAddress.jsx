@@ -213,7 +213,7 @@ const ChangeAddress = () => {
                             </div>
                         </div>
                         <button disabled={disable} className='flex justify-center items-center bg-gradient-to-br from-red-400 via-pink-400 to-pink-200 py-3 rounded-lg font-bold text-white active:scale-95 duration-200 cursor-pointer' type="submit" >
-                            {(loading) ? <img className='w-5 h-5 invert animate-spin' src="/loading.png" alt="" /> :
+                            {(loading) ? <img className='w-5 h-5 invert animate-spin' src="./loading.png" alt="" /> :
                                 <div>CHANGE ADDRESS</div>}
                         </button>
                     </form>

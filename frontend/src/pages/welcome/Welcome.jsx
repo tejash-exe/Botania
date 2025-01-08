@@ -17,7 +17,7 @@ const Welcome = () => {
     <>
       <div className=''>
         <div className='overflow-hidden w-full h-screen flex flex-col justify-center relative'>
-          <img src='/Flowers.jpg' className='w-full z-[-1] top-0 h-full absolute object-cover' />
+          <img src='./Flowers.jpg' className='w-full z-[-1] top-0 h-full absolute object-cover' />
           <div className='flex flex-col justify-center items-center w-screen h-screen'>
             <div className='justify-center p-4 mb-6 flex items-end flex-wrap '>
               <div className='text-5xl pb-1 pr-2 text-gray-700 text-nowrap'>Welcome to</div>
@@ -63,7 +63,7 @@ const Welcome = () => {
           <div className='md:max-w-[50rem]'>
             <div className='text-5xl text-gray-700 flex sm:items-end sm:flex-row flex-col'>
               <div className='pr-4 pb-1'>Powered by</div>
-              <img className='w-[16rem] object-contain' src="/Razorpay.svg" />
+              <img className='w-[16rem] object-contain' src="./Razorpay.svg" />
             </div>
             <div className='mt-6 italic sm:text-2xl text-justify'>
               "At Botania, we ensure a seamless and secure payment experience, powered by Razorpay, a trusted leader in online transactions. Razorpay brings to the platform a host of advanced features, including robust fraud detection, multi-currency support, instant refunds, and a user-friendly interface for hassle-free payments. Whether you're buying or selling, Razorpay guarantees fast and secure processing, offering multiple payment options such as credit cards, debit cards, UPI, and net banking. With Razorpay's cutting-edge technology, Botania delivers a reliable and efficient payment experience, making your transactions smooth and worry-free."

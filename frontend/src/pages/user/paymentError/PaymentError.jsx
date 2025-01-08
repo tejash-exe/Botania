@@ -14,7 +14,7 @@ const PaymentError = () => {
                 <div onClick={() => { navigate('/user/account/profile') }} className="text-center my-2 text-blue-600 underline">go to profile</div>
             </div>
             <div className="-z-10 absolute top-0 overflow-hidden">
-                <img className="h-screen w-screen object-cover" src="/Flowers6.jpg" alt="Background" />
+                <img className="h-screen w-screen object-cover" src="./Flowers6.jpg" alt="Background" />
             </div>
         </div>
     );

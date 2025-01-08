@@ -5,7 +5,8 @@
 * {
     box-sizing: border-box;
 }
-*input[type="number"] {
+
+input[type="number"] {
     -moz-appearance: textfield;  /* Firefox */
     -webkit-appearance: none;    /* Chrome, Safari, Edge */
     appearance: none;            /* Other modern browsers */

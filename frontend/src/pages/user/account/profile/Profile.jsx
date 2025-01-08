@@ -417,7 +417,7 @@ const Profile = () => {
                             />
                         </div>
                         <button disabled={loading} className="my-3 flex justify-center items-center w-[12rem] py-2 rounded-md bg-green-700 text-white hover:bg-green-800 duration-200" onClick={handleUpload}>
-                            {(loading) ? <img className='w-5 h-5 invert animate-spin' src="/loading.png" alt="" /> :
+                            {(loading) ? <img className='w-5 h-5 invert animate-spin' src="./loading.png" alt="" /> :
                                 <div>Upload Cropped Image </div>}
                         </button>
                         <button className="my-1 px-3 py-2 rounded-md bg-red-400 text-white hover:bg-red-600 duration-200 " disabled={loading} onClick={handlecancel}> Cancel upload</button>
@@ -431,7 +431,7 @@ const Profile = () => {
                         <div className='font-bold pb-2 mt-6'>Profile info:</div>
                         <div className='bg-gray-100 flex flex-wrap items-center rounded-xl sm:p-10 p-4 box-border'>
                             <div className='overflow-hidden sm:h-[6rem] h-20 w-20 sm:w-[6rem] rounded-full my-2'>
-                                <img className='hover:scale-105 object-cover duration-500 sm:h-[6rem] sm:w-[6rem]' src={profilePicture ? profilePicture : '/user.png'}></img>
+                                <img className='hover:scale-105 object-cover duration-500 sm:h-[6rem] sm:w-[6rem]' src={profilePicture ? profilePicture : './user.png'}></img>
                             </div>
                             <div className='px-4 my-2'>
                                 <div className='pb-2'>{name &&
@@ -521,7 +521,7 @@ const Profile = () => {
                         <div className='text-2xl text-center my-2'>Please login to continue!</div>
                         <div className='flex justify-center items-center'><button onClick={gotologin} className='hover:scale-105 text-xl backdrop-blur-sm my-2 mx-7 px-4 py-3 rounded-md bg-green-700/60 hover:bg-green-700/80 text-white duration-200'>Log in</button></div>
                     </div>
-                    <div className='-z-10 absolute top-0 overflow-hidden'><img className=' h-screen w-screen object-cover' src="/Flowers1.jpg" alt="" /></div>
+                    <div className='-z-10 absolute top-0 overflow-hidden'><img className=' h-screen w-screen object-cover' src="./Flowers1.jpg" alt="" /></div>
                 </div>}
             </div>
         </>
