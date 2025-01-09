@@ -1,15 +1,15 @@
 import express from "express";
 import cookieParser from "cookie-parser";
 import cors from "cors";
+import 'dotenv/config';
 
 const app = express();
 
 app.use(cors({
-    origin: "https://botania-by-aditya.vercel.app",
+    origin: process.env.FRONTEND_URL,
     credentials: true,
 }));
 
-app.set("trust proxy", 1);
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded( { extended: true } ));
