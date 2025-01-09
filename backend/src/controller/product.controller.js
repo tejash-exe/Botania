@@ -74,7 +74,7 @@ const findProducts = async (req, res) => {
                 },
             },
             {
-                $sort: sortOptions,
+                $sort: { createdAt: -1 },
             },
         ]);
         if(!products) throw new Error("Cannot find products related to keyword!");
