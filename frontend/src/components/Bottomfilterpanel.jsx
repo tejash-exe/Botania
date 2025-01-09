@@ -58,7 +58,7 @@ const Bottomfilterpanel = (props) => {
     };
 
     return (
-        <div ref={filterpanelRef} onClick={filterpanelclick} className={'fixed z-30 bottom-[4rem] h-[4rem] w-screen flex items-center justify-center border-t sm:hidden text-sm' + ((filtermenu) ? ' bg-gray-50 ' : " bg-white ")}>
+        <div ref={filterpanelRef} onClick={filterpanelclick} className={'fixed z-30 bottom-[4rem] h-[4rem] w-screen flex items-center justify-center border-t sm:hidden text-sm' + ((filtermenu) ? ' bg-green-50 ' : " bg-white ")}>
             {filtermenu &&
                 <div id='filtermenu' ref={filterpanelmenuRef} onClick={(e) => e.stopPropagation()} className='fixed flex bottom-[8rem] w-screen bg-gray-50 border-t'>
                     <div className='flex flex-col w-1/2 items-center border-r'>
@@ -90,7 +90,7 @@ const Bottomfilterpanel = (props) => {
                     </div>
                 </div>
             }
-            <div className={'flex items-center w-full' + ((filtermenu) ? " bg-green-50 " : " ")}>
+            <div className='flex items-center w-full'>
                 <div className='w-1/2 flex justify-center items-center border-r h-full'>
                     <div>Sort by : {props.searchby}</div>
                 </div>
