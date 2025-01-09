@@ -190,6 +190,7 @@ const UpdateRouteConfiguration = () => {
                 headers: {
                     "Content-type": "application/json",
                 },
+                credentials: 'include',
             });
             const result = await response.json();
             if (result.status == 469) {
