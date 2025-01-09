@@ -113,7 +113,7 @@ const Navbar = () => {
           </Link>
           <div ref={profilebuttonref} onClick={profilebuttonclick} className='flex justify-center items-center relative'><FontAwesomeIcon className='cursor-pointer mx-2 p-3 h-6 w-6 rounded-full hover:bg-gray-200 duration-150 sm:inline hidden' icon={faCircleUser} />
             {profile &&
-              <div ref={profilemenuref} onClick={(e) => e.stopPropagation()} className='fixed z-[40] top-[4rem] p-4 rounded-xl bg-gray-200 right-4 flex flex-col items-start w-[150px]'>
+              <div ref={profilemenuref} onClick={(e) => e.stopPropagation()} className='fixed z-[40] top-[3.8rem] p-4 rounded-xl bg-gray-200 right-4 flex flex-col items-start w-[150px]'>
                 <div className='border-b-2 text-left border-gray-300 pb-2 text-gray-600 cursor-default'>Hello, {name}</div>
                 <Link to="/user/account/profile" className='pt-2 text-gray-600 hover:text-black hover:font-semibold duration-200'>Profile</Link>
                 <Link to="/user/account/orders" className='py-2 text-gray-600 hover:text-black hover:font-semibold duration-200'>Orders</Link>
