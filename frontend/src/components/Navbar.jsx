@@ -111,9 +111,9 @@ const Navbar = () => {
             <FontAwesomeIcon className='cursor-pointer mx-2 p-3 h-6 w-6 rounded-full hover:bg-gray-200 duration-150' icon={faCartShopping} />
             <div className='bg-red-600 absolute w-4 h-4 rounded-full top-[0.2rem] right-[0.7rem] text-[13px] text-white flex items-center justify-center'><div>{cart.length}</div></div>
           </Link>
-          <div ref={profilebuttonref} onClick={profilebuttonclick} className='flex justify-center items-center'><FontAwesomeIcon className='cursor-pointer mx-2 p-3 h-6 w-6 rounded-full hover:bg-gray-200 duration-150 sm:inline hidden' icon={faCircleUser} />
+          <div ref={profilebuttonref} onClick={profilebuttonclick} className='flex justify-center items-center relative'><FontAwesomeIcon className='cursor-pointer mx-2 p-3 h-6 w-6 rounded-full hover:bg-gray-200 duration-150 sm:inline hidden' icon={faCircleUser} />
             {profile &&
-              <div ref={profilemenuref} onClick={(e) => e.stopPropagation()} className='fixed p-4 rounded-xl bg-gray-200 right-4 flex flex-col items-start w-[150px]'>
+              <div ref={profilemenuref} onClick={(e) => e.stopPropagation()} className='absolute top-full p-4 rounded-xl bg-gray-200 right-4 flex flex-col items-start w-[150px]'>
                 <div className='border-b-2 text-left border-gray-300 pb-2 text-gray-600 cursor-default'>Hello, {name}</div>
                 <Link to="/user/account/profile" className='pt-2 text-gray-600 hover:text-black hover:font-semibold duration-200'>Profile</Link>
                 <Link to="/user/account/orders" className='py-2 text-gray-600 hover:text-black hover:font-semibold duration-200'>Orders</Link>
