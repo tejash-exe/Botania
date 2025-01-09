@@ -60,12 +60,12 @@ const Bottomfilterpanel = (props) => {
     return (
         <div ref={filterpanelRef} onClick={filterpanelclick} className={'fixed z-30 bottom-[4rem] h-[4rem] w-screen flex items-center justify-center border-t sm:hidden text-sm' + ((filtermenu) ? ' bg-gray-50 ' : " bg-white ")}>
             {filtermenu &&
-                <div id='filtermenu' ref={filterpanelmenuRef} onClick={(e) => e.stopPropagation()} className='fixed flex bottom-[8rem] w-screen bg-gray-50 border-t pt-4 '>
+                <div id='filtermenu' ref={filterpanelmenuRef} onClick={(e) => e.stopPropagation()} className='fixed flex bottom-[8rem] w-screen bg-gray-50 border-t'>
                     <div className='flex flex-col w-1/2 items-center border-r'>
-                        <button onClick={() => props.setsearchby('Recently added')} className={' border-green-700 w-5/6 px-3 mx-4 my-2 py-3 border-2 rounded-xl duration-200' + ((props.searchby === 'Recently added') ? ' bg-green-700 text-white hover:bg-green-700 ' : ' hover:bg-green-700/10 ')}>Recently added</button>
+                        <button onClick={() => props.setsearchby('Recently added')} className={' border-green-700 w-5/6 px-3 mx-4 mb-2 mt-6 py-3 border-2 rounded-xl duration-200' + ((props.searchby === 'Recently added') ? ' bg-green-700 text-white hover:bg-green-700 ' : ' hover:bg-green-700/10 ')}>Recently added</button>
                         <button onClick={() => props.setsearchby('Price: High to low')} className={' border-green-700 w-5/6 px-3 mx-4 my-2 py-3 border-2 rounded-xl duration-200' + ((props.searchby === 'Price: High to low') ? ' bg-green-700 text-white hover:bg-green-700 ' : ' hover:bg-green-700/10 ')}>Price: High to low</button>
                         <button onClick={() => props.setsearchby('Price: Low to high')} className={' border-green-700 w-5/6 px-3 mx-4 my-2 py-3 border-2 rounded-xl duration-200' + ((props.searchby === 'Price: Low to high') ? ' bg-green-700 text-white hover:bg-green-700 ' : ' hover:bg-green-700/10 ')}>Price: Low to high</button>
-                        <button onClick={() => props.setsearchby('Avg. customer reviews')} className={' border-green-700 w-5/6 px-3 mx-4 my-2 py-3 border-2 rounded-xl duration-200' + ((props.searchby === 'Avg. customer reviews') ? ' bg-green-700 text-white hover:bg-green-700 ' : ' hover:bg-green-700/10 ')}>Avg. customer reviews</button>
+                        <button onClick={() => props.setsearchby('Avg. customer reviews')} className={' border-green-700 w-5/6 px-3 mx-4 mt-2 mb-6 py-3 border-2 rounded-xl duration-200' + ((props.searchby === 'Avg. customer reviews') ? ' bg-green-700 text-white hover:bg-green-700 ' : ' hover:bg-green-700/10 ')}>Avg. customer reviews</button>
                     </div>
                     <div className='w-1/2 flex flex-col items-center'>
                         <div className=' pb-[2rem] flex-col flex w-full items-center justify-end h-full '>
@@ -91,7 +91,7 @@ const Bottomfilterpanel = (props) => {
                 </div>
             }
             <div className='flex items-center w-full'>
-                <div className='w-1/2 flex justify-center items-center'>
+                <div className='w-1/2 flex justify-center items-center border-r'>
                     <div>Sort by : {props.searchby}</div>
                 </div>
                 <div className='w-1/2 flex justify-center items-center'>
