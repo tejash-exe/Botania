@@ -68,7 +68,7 @@ const Bottomfilterpanel = (props) => {
                         <button onClick={() => props.setsearchby('Avg. customer reviews')} className={' border-green-700 w-5/6 px-3 mx-4 mt-2 mb-6 py-3 border-2 rounded-xl duration-200' + ((props.searchby === 'Avg. customer reviews') ? ' bg-green-700 text-white hover:bg-green-700 ' : ' hover:bg-green-700/10 ')}>Avg. customer reviews</button>
                     </div>
                     <div className='w-1/2 flex flex-col items-center'>
-                        <div className=' pb-[2rem] flex-col flex w-full items-center justify-end h-full '>
+                        <div className='flex-col flex w-full items-center justify-end h-full '>
                             <div>
                                 <div className='mb-1'>Price: </div>
                                 <div className='flex items-center justify-between w-[10rem]'>
@@ -83,15 +83,15 @@ const Bottomfilterpanel = (props) => {
                                     </div>
                                 </div>
                             </div>
-                            <div className='flex mt-2 items-center'>
-                                <button disabled={props.pricechanges == false} className={((props.pricechanges == false) ? ' bg-white text-black' : ' bg-green-700 text-white ') + ' w-[10rem] rounded-lg border-2 duration-200 border-green-700 mt-2 py-2'} onClick={startSearch} >Search results</button>
+                            <div className='flex items-center'>
+                                <button disabled={props.pricechanges == false} className={((props.pricechanges == false) ? ' bg-white text-black' : ' bg-green-700 text-white ') + ' w-[10rem] rounded-lg border-2 duration-200 border-green-700 px-3 mx-4 mt-2 mb-6 py-3'} onClick={startSearch} >Search results</button>
                             </div>
                         </div>
                     </div>
                 </div>
             }
             <div className='flex items-center w-full'>
-                <div className='w-1/2 flex justify-center items-center border-r'>
+                <div className='w-1/2 flex justify-center items-center border-r h-full'>
                     <div>Sort by : {props.searchby}</div>
                 </div>
                 <div className='w-1/2 flex justify-center items-center'>
