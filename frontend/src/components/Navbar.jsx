@@ -102,8 +102,8 @@ const Navbar = () => {
         </form>
       </div>
       {isAuth ?
-        <div className='flex items-center'>
-          <Link to="/user/account/wishlist/" className='sm:block hidden relative' >
+        <div className='flex items-end'>
+          <Link to="/user/account/wishlist/" className='sm:block hidden relative ' >
             <FontAwesomeIcon className='cursor-pointer mx-2 p-3 h-6 w-6 rounded-full hover:bg-gray-200 duration-150' icon={faHeart} />
             <div className='bg-red-600 absolute w-4 h-4 rounded-full top-[0.2rem] right-[0.7rem] text-[13px] text-white flex items-center justify-center '><div>{wishlist.length}</div></div>
           </Link>
