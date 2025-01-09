@@ -103,15 +103,15 @@ const Navbar = () => {
       </div>
       {isAuth ?
         <div className='flex items-center h-[4rem]'>
-          <Link to="/user/account/wishlist/" className='sm:block hidden relative ' >
+          <Link to="/user/account/wishlist/" className='sm:block hidden relative flex justify-center items-center' >
             <FontAwesomeIcon className='cursor-pointer mx-2 p-3 h-6 w-6 rounded-full hover:bg-gray-200 duration-150' icon={faHeart} />
             <div className='bg-red-600 absolute w-4 h-4 rounded-full top-[0.2rem] right-[0.7rem] text-[13px] text-white flex items-center justify-center '><div>{wishlist.length}</div></div>
           </Link>
-          <Link to="/user/account/cart" className='relative'>
+          <Link to="/user/account/cart" className='relative flex justify-center items-center'>
             <FontAwesomeIcon className='cursor-pointer mx-2 p-3 h-6 w-6 rounded-full hover:bg-gray-200 duration-150' icon={faCartShopping} />
             <div className='bg-red-600 absolute w-4 h-4 rounded-full top-[0.2rem] right-[0.7rem] text-[13px] text-white flex items-center justify-center'><div>{cart.length}</div></div>
           </Link>
-          <div ref={profilebuttonref} onClick={profilebuttonclick}><FontAwesomeIcon className='cursor-pointer mx-2 p-3 h-6 w-6 rounded-full hover:bg-gray-200 duration-150 sm:inline hidden' icon={faCircleUser} />
+          <div ref={profilebuttonref} onClick={profilebuttonclick} className='flex justify-center items-center'><FontAwesomeIcon className='cursor-pointer mx-2 p-3 h-6 w-6 rounded-full hover:bg-gray-200 duration-150 sm:inline hidden' icon={faCircleUser} />
             {profile &&
               <div ref={profilemenuref} onClick={(e) => e.stopPropagation()} className='fixed p-4 rounded-xl bg-gray-200 right-4 flex flex-col items-start w-[150px]'>
                 <div className='border-b-2 text-left border-gray-300 pb-2 text-gray-600 cursor-default'>Hello, {name}</div>

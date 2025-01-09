@@ -84,13 +84,13 @@ const Bottomfilterpanel = (props) => {
                                 </div>
                             </div>
                             <div className='flex items-center'>
-                                <button disabled={props.pricechanges == false} className={((props.pricechanges == false) ? ' bg-white text-black' : ' bg-green-700 text-white ') + ' w-[10rem] rounded-lg border-2 duration-200 border-green-700 px-3 mx-4 mt-2 mb-6 py-3'} onClick={startSearch} >Search results</button>
+                                <button disabled={props.pricechanges == false} className={((props.pricechanges == false) ? ' bg-white text-black' : ' bg-green-700 text-white ') + ' w-[10rem] rounded-xl border-2 duration-200 border-green-700 px-3 mx-4 mt-2 mb-6 py-3'} onClick={startSearch} >Search results</button>
                             </div>
                         </div>
                     </div>
                 </div>
             }
-            <div className='flex items-center w-full'>
+            <div className={'flex items-center w-full' + ((filtermenu) ? " bg-green-50 " : " ")}>
                 <div className='w-1/2 flex justify-center items-center border-r h-full'>
                     <div>Sort by : {props.searchby}</div>
                 </div>
