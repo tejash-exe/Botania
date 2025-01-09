@@ -447,7 +447,7 @@ const Profile = () => {
                                 }</div>
                             </div>
                         </div>
-                        <div className='flex items-center sm:justify-end justify-center mt-2'>
+                        <div className='flex items-center sm:justify-end justify-center'>
                             <div className=''>
                                 <input disabled={loading} ref={profilepictureref} onChange={(e) => { onImageChange(e) }} type='file' accept='image/*' id='profileimage' className='hidden'></input>
                                 <label disabled={loading} htmlFor="profileimage" className={((loading) ? ' text-gray-400 ' : ' bg-green-700 text-white hover:bg-white border-green-700 hover:text-black') + ' cursor-pointer my-3 px-3 py-2 rounded-md duration-200 border-2 active:scale-95 mr-3'}>Change profile picture</label>
