@@ -155,7 +155,7 @@ const OrderConfirmation = () => {
                                         <img className={'sm:w-[8rem] w-[6rem] sm:h-[10rem] h-[7rem] object-cover rounded-md'} src={products.images[0]} />
                                     </div>
                                     <div className='ml-4 flex flex-col justify-between'>
-                                        <div className='sm:mt-2'>
+                                        <div className='mt-2'>
                                             <div className='font-bold'>{products.name}</div>
                                             <div className='sm:w-[400px] w-[11rem] overflow-hidden whitespace-nowrap text-ellipsis'>{products.description}</div>
                                             <div>Rs.{products.price}</div>
