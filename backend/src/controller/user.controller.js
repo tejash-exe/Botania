@@ -348,7 +348,7 @@ const addToWishlist = async (req, res) => {
         //Check already exists
         const isAlreadyInWishlist = user.wishlist.some(id => id.equals(objectProductId));
         if (isAlreadyInWishlist) {
-            throw new Error("Product is already in your wishlist!");
+            res.json(new ApiResponse(200, "Product is already in your wishlist!", { wishlist: user.wishlist }));
         };
 
         //Save user
@@ -445,7 +445,7 @@ const addToCart = async (req, res) => {
         //Check already in cart
         const isAlreadyInCart = user.cart.some(id => id.equals(objectProductId));
         if (isAlreadyInCart) {
-            throw new Error("Product is already in your cart!");
+            res.json(new ApiResponse(200, "Product is already in your cart!", { cart: user.cart }));
         };
 
         //Save user
