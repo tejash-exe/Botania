@@ -328,7 +328,15 @@ const ProductPage = () => {
               <div>Login to add products in your cart and wishlist</div>
             </button>
           </div>}
-          {disable && <div className='flex items-center'>
+          {disable && !cart.includes(productid) && <div className='flex items-center'>
+            {(product.availability == true || cart.includes(productid)) && <button className='sm:px-10 px-6 py-3 text-gray-200 sm:text-base text-sm animate-pulse rounded-3xl duration-200 font-bold border-2 border-gray-200 mr-2'><FontAwesomeIcon className='pr-2' icon={faShoppingCart} />
+              REMOVE FROM CART
+            </button>}
+            {(product.availability == true || wishlist.includes(productid)) && <div className='border-2 cursor-pointer active:scale-95 duration-200 rounded-full border-gray-200 animate-pulse flex justify-center items-center'>
+              <FontAwesomeIcon className='sm:p-[0.86rem] p-[0.7rem] w-5 h-5 text-gray-200' icon={solidHeart} />
+            </div>}
+          </div>}
+          {disable && !cart.includes(productid) && <div className='flex items-center'>
             {(product.availability == true || cart.includes(productid)) && <button className='sm:px-10 px-6 py-3 text-gray-200 sm:text-base text-sm animate-pulse rounded-3xl duration-200 font-bold border-2 border-gray-200 mr-2'><FontAwesomeIcon className='pr-2' icon={faShoppingCart} />
               ADD TO CART
             </button>}
