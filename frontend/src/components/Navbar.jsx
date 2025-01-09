@@ -72,7 +72,8 @@ const Navbar = () => {
   const handleLogout = async (e) => {
     e.preventDefault();
     const response = await fetch(`${backend_url}/api/users/logout`, {
-      method: "POST"
+      method: "POST",
+      credentials: 'include',
     })
       .then(res => res.json())
       .then(res => {

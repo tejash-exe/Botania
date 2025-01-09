@@ -171,7 +171,10 @@ const SellerProfile = () => {
     const fetchProfile = async () => {
         try {
             setloading(true);
-            const response = await fetch(`${backend_url}/api/sellers/fetch-profile`, { method: 'POST' });
+            const response = await fetch(`${backend_url}/api/sellers/fetch-profile`, { 
+                method: 'POST', 
+                credentials: 'include',
+            });
             const result = await response.json();
             if (result.status == 469) {
                 // console.log(result.message);
@@ -261,6 +264,7 @@ const SellerProfile = () => {
                     try {
                         const response = await fetch(`${backend_url}/api/sellers/update-profilepicture`, {
                             method: 'POST',
+                            credentials: 'include',
                             body: formData,
                         });
                         const result = await response.json();
@@ -304,7 +308,8 @@ const SellerProfile = () => {
     const handleLogout = async (e) => {
         e.preventDefault();
         const response = await fetch(`${backend_url}/api/sellers/logout`, {
-            method: "POST"
+            method: "POST",
+            credentials: 'include',
         })
             .then(res => res.json())
             .then(res => {
@@ -335,6 +340,7 @@ const SellerProfile = () => {
                 setloading(true);
                 const response = await fetch(`${backend_url}/api/sellers/update-brandname`, {
                     method: "POST",
+                    credentials: 'include',
                     headers: {
                         "Content-Type": "application/json",
                     },
@@ -389,6 +395,7 @@ const SellerProfile = () => {
                 setloading(true);
                 const response = await fetch(`${backend_url}/api/sellers/update-name`, {
                     method: "POST",
+                    credentials: 'include',
                     headers: {
                         "Content-Type": "application/json",
                     },
@@ -444,6 +451,7 @@ const SellerProfile = () => {
                 setloading(true);
                 const response = await fetch(`${backend_url}/api/sellers/update-email`, {
                     method: "POST",
+                    credentials: 'include',
                     headers: {
                         "Content-Type": "application/json",
                     },
@@ -504,6 +512,7 @@ const SellerProfile = () => {
                 setloading(true);
                 const response = await fetch(`${backend_url}/api/sellers/update-password`, {
                     method: "POST",
+                    credentials: 'include',
                     headers: {
                         "Content-Type": "application/json",
                     },
@@ -570,7 +579,10 @@ const SellerProfile = () => {
     const requestAccountActivation = async () => {
         try {
             setloading(true);
-            const response = await fetch(`${backend_url}/api/sellers/request-account-activation`, { method: "POST" });
+            const response = await fetch(`${backend_url}/api/sellers/request-account-activation`, { 
+                method: "POST",
+                credentials: 'include',
+            });
             const result = await response.json();
             if (result.status == 200) {
                 setpopupMessage("Account activated succesfully!");

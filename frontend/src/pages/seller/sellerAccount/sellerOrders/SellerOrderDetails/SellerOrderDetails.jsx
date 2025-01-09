@@ -124,6 +124,7 @@ const SellerOrderDetails = () => {
                 headers: {
                     "Content-Type": "application/json"
                 },
+                credentials: 'include',
                 body: JSON.stringify({
                     orderId: orderId,
                 }),
@@ -182,6 +183,7 @@ const SellerOrderDetails = () => {
                     headers: {
                         "Content-Type": "application/json"
                     },
+                    credentials: 'include',
                     body: JSON.stringify({
                         orderId: orderId,
                     }),

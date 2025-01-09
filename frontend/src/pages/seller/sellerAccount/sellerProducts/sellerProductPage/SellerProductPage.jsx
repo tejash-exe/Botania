@@ -108,7 +108,10 @@ const SellerProductPage = () => {
   const fetchProduct = async () => {
     try {
       setloading(true);
-      const response = await fetch(`${backend_url}/api/sellers/fetch-productdetails/${productId}`, { method: 'POST' });
+      const response = await fetch(`${backend_url}/api/sellers/fetch-productdetails/${productId}`, { 
+        method: 'POST', 
+        credentials: 'include',
+      });
       const result = await response.json();
       if (result.status == 469) {
         // console.log(result.message);

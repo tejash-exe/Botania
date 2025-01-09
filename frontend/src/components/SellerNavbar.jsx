@@ -17,7 +17,8 @@ const SellerNavbar = () => {
     const handleLogout = async (e) => {
         e.preventDefault();
         const response = await fetch(`${backend_url}/api/sellers/logout`, {
-            method: "POST"
+            method: "POST",
+            credentials: 'include',
         })
             .then(res => res.json())
             .then(res => {

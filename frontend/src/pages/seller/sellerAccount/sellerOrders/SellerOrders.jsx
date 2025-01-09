@@ -54,6 +54,7 @@ const SellerOrders = () => {
             setloading(true);
             const response = await fetch(`${backend_url}/api/sellers/fetch-orders`, {
                 method: 'POST',
+                credentials: 'include',
                 headers: {
                     "Content-type": "application/json",
                 },

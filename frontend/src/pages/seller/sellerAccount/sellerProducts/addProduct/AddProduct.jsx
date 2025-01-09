@@ -234,7 +234,10 @@ const AddProduct = () => {
     const fetchProfile = async () => {
         try {
             setloading(true);
-            const response = await fetch(`${backend_url}/api/sellers/fetch-profile`, { method: 'POST' });
+            const response = await fetch(`${backend_url}/api/sellers/fetch-profile`, { 
+                method: 'POST', 
+                credentials: 'include',
+            });
             const result = await response.json();
             if (result.status == 469) {
                 // console.log(result.message);
@@ -379,6 +382,7 @@ const AddProduct = () => {
             try {
                 const response = await fetch(`${backend_url}/api/sellers/add-product`, {
                     method: "POST",
+                    credentials: 'include',
                     body: formData,
                 });
                 const result = await response.json();

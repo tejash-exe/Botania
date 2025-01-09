@@ -95,7 +95,8 @@ const LinktoRazorpay = () => {
         try {
             setloading(true);
             const response = await fetch(`${backend_url}/api/sellers/delete-linked-account`, {
-                method: "POST"
+                method: "POST",
+                credentials: 'include',
             });
 
             const result = await response.json();
@@ -136,7 +137,8 @@ const LinktoRazorpay = () => {
         try {
             setloading(true);
             const response = await fetch(`${backend_url}/api/sellers/fetch-profile`, {
-                method: "POST"
+                method: "POST",
+                credentials: 'include',
             });
             const result = await response.json();
             if (result.status == 469) {

@@ -10,6 +10,7 @@ import Cropper from 'react-easy-crop';
 import Notification from '../../../../../components/Notification';
 
 const UpdateProduct = () => {
+
     const { productId } = useParams();
     const navigate = useNavigate();
     const addimageref = useRef();
@@ -273,7 +274,10 @@ const UpdateProduct = () => {
     const fetchProducttoUpdate = async () => {
         try {
             setloading(true);
-            const response = await fetch(`${backend_url}/api/sellers/fetch-product-to-update/${productId}`, { method: 'POST' });
+            const response = await fetch(`${backend_url}/api/sellers/fetch-product-to-update/${productId}`, { 
+                method: 'POST',
+                credentials: 'include', 
+            });
             const result = await response.json();
             if (result.status == 469) {
                 // console.log(result.message);
@@ -433,6 +437,7 @@ const UpdateProduct = () => {
             try {
                 const response = await fetch(`${backend_url}/api/sellers/update-product`, {
                     method: "POST",
+                    credentials: 'include',
                     body: formData,
                 });
                 const result = await response.json();
@@ -518,6 +523,7 @@ const UpdateProduct = () => {
                 headers: {
                     "Content-type": "application/json",
                 },
+                credentials: 'include',
                 body: JSON.stringify(data),
             });
             const result = await response.json();

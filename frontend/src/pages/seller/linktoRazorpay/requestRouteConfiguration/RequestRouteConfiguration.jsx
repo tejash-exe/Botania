@@ -68,7 +68,8 @@ const RequestRouteConfiguration = () => {
         try {
             setloading(true);
             const response = await fetch(`${backend_url}/api/sellers/fetch-razorpay`, {
-                method: "POST"
+                method: "POST",
+                credentials: 'include',
             });
             const result = await response.json();
             if (result.status == 469) {
@@ -106,7 +107,8 @@ const RequestRouteConfiguration = () => {
         try {
             setloading(true);
             const response = await fetch(`${backend_url}/api/sellers/request-route-config`, {
-                method: "POST"
+                method: "POST",
+                credentials: 'include',
             });
             const result = await response.json();
             if (result.status == 469) {

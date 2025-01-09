@@ -124,6 +124,7 @@ const ChangeSelleraddress = () => {
             setloading(true);
             const response = await fetch(`${backend_url}/api/sellers/fetch-address`, {
                 method: "POST",
+                credentials: 'include',
                 headers: {
                     "Content-Type": "application/json",
                 },
@@ -187,6 +188,7 @@ const ChangeSelleraddress = () => {
                     headers: {
                         "Content-Type": "application/json",
                     },
+                    credentials: 'include',
                     body: JSON.stringify(data),
                 });
                 const result = await response.json();

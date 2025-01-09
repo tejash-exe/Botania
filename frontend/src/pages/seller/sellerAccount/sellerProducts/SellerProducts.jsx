@@ -63,6 +63,7 @@ const SellerProducts = () => {
             setloading(true);
             const response = await fetch(`${backend_url}/api/sellers/fetch-products`, {
                 method: 'POST',
+                credentials: 'include',
                 headers: {
                     "Content-type": "application/json",
                 },
