@@ -16,6 +16,7 @@ const AddProduct = () => {
     const addPopupmenuref = useRef();
     const discardbuttonref = useRef();
     const addbuttonref = useRef();
+    const productNameref = useRef();
     const descriptionref = useRef();
     const { issellerAuth, setissellerAuth, setsellerredirect, setisProductAdded, backend_url } = useContext(AppContext);
     const [poster, setposter] = useState('');
@@ -107,7 +108,15 @@ const AddProduct = () => {
             textarea.style.height = "auto";
             textarea.style.height = `${textarea.scrollHeight + 10}px`;
         };
-    }, [description]);
+    }, [description, loading]);
+
+    useEffect(() => {
+        if (productNameref.current) {
+            const textarea = productNameref.current;
+            textarea.style.height = "auto";
+            textarea.style.height = `${textarea.scrollHeight + 10}px`;
+        };
+    }, [productName, loading]);
 
     const changeprice = (e) => {
         const value = e.target.value;
@@ -506,7 +515,7 @@ const AddProduct = () => {
                 </div>
                 <div className='sm:p-8 p-4 md:w-[40rem] md:pt-[5rem]'>
                     <div className='flex items-end'>
-                        <textarea type='text' value={productName} onChange={(e) => { changeproductName(e) }} placeholder='Enter product name' className='addProducttextarea sm:text-3xl text-2xl font-bold border outline-none rounded-xl overflow-auto w-full px-1'></textarea>
+                        <textarea ref={productNameref} type='text' value={productName} onChange={(e) => { changeproductName(e) }} placeholder='Enter product name' className='addProducttextarea sm:text-3xl text-2xl font-bold border outline-none rounded-xl overflow-auto w-full px-1'></textarea>
                     </div>
                     <div className='italic '>Sold by: {seller.brandName}</div>
                     <div className='sm:text-3xl text-2xl my-8'>Rs.<input type='text' value={price} onChange={(e) => { changeprice(e) }} className='w-[10rem] outline-none px-2 border rounded-xl' placeholder='Price' /></div>
