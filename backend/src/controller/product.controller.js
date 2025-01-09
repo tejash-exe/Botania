@@ -66,7 +66,7 @@ const findProducts = async (req, res) => {
                     price: 1,
                     // coverImage: 1,
                     images: 1,
-                    // createdAt: 1,
+                    createdAt: 1,
                     // updatedAt: 1,
                     'soldBy.averageRating': 1, // Include specific fields from soldBy
                     // 'soldBy.email': 1, // Include email if applicable
@@ -78,7 +78,6 @@ const findProducts = async (req, res) => {
             },
         ]);
         if(!products) throw new Error("Cannot find products related to keyword!");
-        console.log(products);
 
         res.json(new ApiResponse(200, "Product fetched successfully!", products));
     } catch (error) {
