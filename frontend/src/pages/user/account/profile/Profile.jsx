@@ -452,7 +452,7 @@ const Profile = () => {
                                 <input disabled={loading} ref={profilepictureref} onChange={(e) => { onImageChange(e) }} type='file' accept='image/*' id='profileimage' className='hidden'></input>
                                 <label disabled={loading} htmlFor="profileimage" className={((loading) ? ' text-gray-400 ' : ' bg-green-700 text-white hover:bg-white border-green-700 hover:text-black') + ' cursor-pointer my-3 px-3 py-2 rounded-md duration-200 border-2 active:scale-95 mr-3'}>Change profile picture</label>
                             </div>
-                            <button className='my-3 px-3 py-2 rounded-md border-2 border-red-400 hover:border-red-600 bg-red-400 text-white hover:bg-red-600 duration-200 active:scale-95' onClick={handleLogout}>Log out</button>
+                            <button className='my-3 px-3 py-2 rounded-md bg-red-400 text-white hover:bg-red-600 duration-200 active:scale-95' onClick={handleLogout}>Log out</button>
                         </div>
                     </div>
                     <div className='lg:mx-20 sm:mx-10 mx-2 border-2 border-green-700 rounded-xl flex flex-col'>
