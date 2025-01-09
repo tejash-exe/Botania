@@ -1,7 +1,7 @@
 const options = {
     httpOnly: true, 
     secure: true,  
-    sameSite: 'None',
+    sameSite: 'none',
 };
 
 export default options;
