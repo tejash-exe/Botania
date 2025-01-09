@@ -54,6 +54,7 @@ const Orders = () => {
             const response = await fetch(`${backend_url}/api/users/fetch-orders`,
                 {
                     method: "POST",
+                    credentials: 'include',
                 }
             );
             const data = await response.json();

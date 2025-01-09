@@ -67,6 +67,7 @@ const Cart = () => {
             const response = await fetch(`${backend_url}/api/users/cart`,
                 {
                     method: "POST",
+                    credentials: 'include',
                 }
             );
             const data = await response.json();
@@ -112,8 +113,9 @@ const Cart = () => {
                 const response = await fetch(`${backend_url}/api/users/remove-from-cart`, {
                     method: "POST",
                     headers: {
-                        "Content-Type": "application/json"
+                        "Content-Type": "application/json",
                     },
+                    credentials: 'include',
                     body: JSON.stringify({
                         productId: productId,
                     })

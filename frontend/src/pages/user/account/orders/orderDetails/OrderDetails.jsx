@@ -265,6 +265,7 @@ const OrderDetails = () => {
                 headers: {
                     "Content-Type": "application/json"
                 },
+                credentials: 'include',
                 body: JSON.stringify({
                     orderId: orderId,
                 })
@@ -334,6 +335,7 @@ const OrderDetails = () => {
                 formData.append("rating", rating + 1);
                 const response = await fetch(`${backend_url}/api/users/add-review`, {
                     method: "POST",
+                    credentials: 'include',
                     body: formData,
                 });
                 const result = await response.json();
@@ -389,6 +391,7 @@ const OrderDetails = () => {
                 formData.append("deleted", deleted.toString());
                 const response = await fetch(`${backend_url}/api/users/update-review`, {
                     method: "POST",
+                    credentials: 'include',
                     body: formData,
                 });
                 const result = await response.json();
@@ -432,6 +435,7 @@ const OrderDetails = () => {
                     headers: {
                         "Content-Type": "application/json"
                     },
+                    credentials: 'include',
                     body: JSON.stringify({
                         orderId: orderId,
                     })

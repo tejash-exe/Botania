@@ -64,6 +64,7 @@ const Wishlist = () => {
                     headers: {
                         "Content-Type": "application/json"
                     },
+                    credentials: 'include',
                     body: JSON.stringify({
                         productId: productId,
                     })
@@ -103,6 +104,7 @@ const Wishlist = () => {
             const response = await fetch(`${backend_url}/api/users/wishlist`,
                 {
                     method: "POST",
+                    credentials: 'include',
                 }
             );
             const data = await response.json();

@@ -60,7 +60,8 @@ const OrderConfirmation = () => {
             setloading(true);
             const response = await fetch(`${backend_url}/api/users/order-confirmation`,
                 {
-                    method: 'POST'
+                    method: 'POST',
+                    credentials: 'include',
                 },
 
             );

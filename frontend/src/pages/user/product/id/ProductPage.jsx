@@ -55,7 +55,10 @@ const ProductPage = () => {
   const fetchProduct = async () => {
     try {
       setloading(true);
-      const response = await fetch(`${backend_url}/api/products/getproduct/${productid}/`, { method: "POST" })
+      const response = await fetch(`${backend_url}/api/products/getproduct/${productid}/`, { 
+        method: "POST",
+        credentials: 'include',
+      });
       const data = await response.json();
       // console.log(data);
       if(data.status == 200){
@@ -68,7 +71,7 @@ const ProductPage = () => {
         setpopupMessage(data.message);
         setisPopup(true);
         seterror(true);
-      }
+      };
     } catch (error) {
       console.log(error);
       setpopupMessage(error.message);
@@ -126,6 +129,7 @@ const ProductPage = () => {
           headers: {
             "Content-Type": "application/json"
           },
+          credentials: 'include',
           body: JSON.stringify({
             productId: productid,
           })
@@ -164,6 +168,7 @@ const ProductPage = () => {
           headers: {
             "Content-Type": "application/json"
           },
+          credentials: 'include',
           body: JSON.stringify({
             productId: productid,
           })
@@ -208,6 +213,7 @@ const ProductPage = () => {
           headers: {
             "Content-Type": "application/json"
           },
+          credentials: 'include',
           body: JSON.stringify({
             productId: productid,
           })
@@ -246,6 +252,7 @@ const ProductPage = () => {
           headers: {
             "Content-Type": "application/json"
           },
+          credentials: 'include',
           body: JSON.stringify({
             productId: productid,
           })

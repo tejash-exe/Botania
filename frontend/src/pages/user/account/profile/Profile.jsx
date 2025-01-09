@@ -114,7 +114,8 @@ const Profile = () => {
     const handleLogout = async (e) => {
         e.preventDefault();
         const response = await fetch(`${backend_url}/api/users/logout`, {
-            method: "POST"
+            method: "POST",
+            credentials: 'include',
         })
             .then(res => res.json())
             .then(res => {
@@ -144,6 +145,7 @@ const Profile = () => {
                     headers: {
                         "Content-Type": "application/json",
                     },
+                    credentials: 'include',
                     body: JSON.stringify(data),
                 })
                     .then(res => res.json())
@@ -199,6 +201,7 @@ const Profile = () => {
                     headers: {
                         "Content-Type": "application/json",
                     },
+                    credentials: 'include',
                     body: JSON.stringify(data),
                 })
                     .then(res => res.json())
@@ -259,6 +262,7 @@ const Profile = () => {
                     headers: {
                         "Content-Type": "application/json",
                     },
+                    credentials: 'include',
                     body: JSON.stringify(data),
                 })
                     .then(res => res.json())
@@ -361,6 +365,7 @@ const Profile = () => {
                     try {
                         const response = await fetch(`${backend_url}/api/users/update-profilepicture`, {
                             method: 'POST',
+                            credentials: 'include',
                             body: formData,
                         });
                         const result = await response.json();

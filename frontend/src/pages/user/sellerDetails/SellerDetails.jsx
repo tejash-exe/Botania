@@ -139,6 +139,7 @@ const SellerDetails = () => {
                 headers: {
                     "Content-type": "application/json",
                 },
+                credentials: 'include',
                 body: JSON.stringify({
                     sellerId: sellerId,
                 }),
@@ -180,6 +181,7 @@ const SellerDetails = () => {
                 headers: {
                     "Content-type": "application/json",
                 },
+                credentials: 'include',
                 body: JSON.stringify({
                     sellerId: sellerId,
                     searchBy: searchBy,
@@ -218,6 +220,7 @@ const SellerDetails = () => {
                 headers: {
                     "Content-type": "application/json",
                 },
+                credentials: 'include',
                 body: JSON.stringify({
                     sellerId: sellerId,
                     searchBy: reviewsearchBy,

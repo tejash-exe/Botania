@@ -60,6 +60,7 @@ const Searchresults = () => {
                     headers: {
                         'Content-Type': 'application/json'
                     },
+                    credentials: 'include',
                     body: JSON.stringify({
                         searchBy: searchby,
                         minPrice: minPrice,
@@ -122,6 +123,7 @@ const Searchresults = () => {
                     headers: {
                         "Content-Type": "application/json"
                     },
+                    credentials: 'include',
                     body: JSON.stringify({
                         productId: productId,
                     })
@@ -160,6 +162,7 @@ const Searchresults = () => {
                     headers: {
                         "Content-Type": "application/json"
                     },
+                    credentials: 'include',
                     body: JSON.stringify({
                         productId: productId,
                     })
