@@ -328,7 +328,7 @@ const ProductPage = () => {
               <div>Login to add products in your cart and wishlist</div>
             </button>
           </div>}
-          {disable && !cart.includes(productid) && <div className='flex items-center'>
+          {disable && cart.includes(productid) && <div className='flex items-center'>
             {(product.availability == true || cart.includes(productid)) && <button className='sm:px-10 px-6 py-3 text-gray-200 sm:text-base text-sm animate-pulse rounded-3xl duration-200 font-bold border-2 border-gray-200 mr-2'><FontAwesomeIcon className='pr-2' icon={faShoppingCart} />
               REMOVE FROM CART
             </button>}
