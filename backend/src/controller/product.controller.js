@@ -74,10 +74,11 @@ const findProducts = async (req, res) => {
                 },
             },
             {
-                $sort: { createdAt: -1 },
+                $sort: sortOptions,
             },
         ]);
         if(!products) throw new Error("Cannot find products related to keyword!");
+        console.log(products);
 
         res.json(new ApiResponse(200, "Product fetched successfully!", products));
     } catch (error) {
