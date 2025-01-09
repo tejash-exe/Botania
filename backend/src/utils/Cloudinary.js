@@ -1,6 +1,7 @@
 import {v2 as cloudinary} from "cloudinary";
 import fs from "fs";
 import 'dotenv/config';
+import { error } from "console";
 
 const uploadOnCloudinary = async (localfilepath) => {
     try {
@@ -12,8 +13,12 @@ const uploadOnCloudinary = async (localfilepath) => {
 
         if (!localfilepath) throw new Error("localfilepath is missing!");
 
-        const response = await cloudinary.uploader.upload(localfilepath)
-        .catch(error => { 
+        const response = await cloudinary.uploader.upload(localfilepath, {
+            transformation: [
+              { quality: 'auto' }, // Auto-optimize quality
+              { fetch_format: 'auto' }, // Use modern formats like WebP if supported
+            ],
+          }).catch(error => {
             console.log(error);
             throw new Error("Unable to upload to cloudinary!");
         });
