@@ -2,7 +2,7 @@ const options = {
     httpOnly: true, 
     secure: true,  
     sameSite: 'none',
-    // domain: "botania-by-aditya.vercel.app",
+    domain: "onrender.com",
     path: '/',
 };
 
