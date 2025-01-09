@@ -6,7 +6,7 @@ import 'dotenv/config';
 const app = express();
 
 app.use(cors({
-    origin: ["https://botania-by-aditya.vercel.app", "https://botania.netlify.app/user/login-register"],
+    origin: ["https://botania-by-aditya.vercel.app", "https://botania.netlify.app"],
     credentials: true,
 }));
 
