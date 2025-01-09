@@ -148,7 +148,7 @@ const OrderConfirmation = () => {
                             <div>Phone : {user.address?.contact}</div>
                         </div>
                         <div className='font-bold mt-8 mb-2'>Order summary :</div>
-                        <div className='flex flex-col'>
+                        <div className='flex flex-col sm:text-base text-xs'>
                             {user.cart && user.cart.map(products => {
                                 return <div key={products._id} className='flex p-4 border-green-700 border-2 duration-200 rounded-xl mb-4'>
                                     <div className='flex-shrink-0'>
@@ -158,7 +158,7 @@ const OrderConfirmation = () => {
                                         <div className='sm:mt-2'>
                                             <div className='font-bold'>{products.name}</div>
                                             <div className='sm:w-[400px] w-[11rem] overflow-hidden whitespace-nowrap text-ellipsis'>{products.description}</div>
-                                            <div>₹{products.price}</div>
+                                            <div>Rs.{products.price}</div>
                                             <div className='mt-4'>Sold by: {products.soldBy.brandName}</div>
                                         </div>
                                     </div>

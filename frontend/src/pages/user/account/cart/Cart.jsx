@@ -201,7 +201,7 @@ const Cart = () => {
                                 <div className='mt-2'>
                                     <div className='font-bold'>{products.name}</div>
                                     <div className='sm:w-[300px] w-[9rem] overflow-hidden whitespace-nowrap text-ellipsis'>{products.description}</div>
-                                    <div>₹{products.price}</div>
+                                    <div>Rs.{products.price}</div>
                                 </div>
                                 <div>Sold by: {products.soldBy.brandName}</div>
                                 <div className='mt-2'>
