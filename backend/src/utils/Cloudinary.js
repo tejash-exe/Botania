@@ -14,7 +14,7 @@ const uploadOnCloudinary = async (localfilepath) => {
         if (!localfilepath) throw new Error("localfilepath is missing!");
 
         const response = await cloudinary.uploader.upload(localfilepath, {
-            quality: "auto:best"
+            quality: "auto:good"
         }).catch(error => {
             console.log(error);
             throw new Error("Unable to upload to cloudinary!");

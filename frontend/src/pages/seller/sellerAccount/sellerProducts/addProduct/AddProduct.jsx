@@ -16,6 +16,7 @@ const AddProduct = () => {
     const addPopupmenuref = useRef();
     const discardbuttonref = useRef();
     const addbuttonref = useRef();
+    const descriptionref = useRef();
     const { issellerAuth, setissellerAuth, setsellerredirect, setisProductAdded, backend_url } = useContext(AppContext);
     const [poster, setposter] = useState('');
     const [active, setactive] = useState(0);
@@ -99,6 +100,14 @@ const AddProduct = () => {
         textarea.style.height = "auto"; // Reset height to auto to calculate the new scrollHeight
         textarea.style.height = `${textarea.scrollHeight + 10}px`;
     };
+
+    useEffect(() => {
+        if (descriptionref.current) {
+            const textarea = descriptionref.current;
+            textarea.style.height = "auto";
+            textarea.style.height = `${textarea.scrollHeight + 10}px`;
+        };
+    }, [description]);
 
     const changeprice = (e) => {
         const value = e.target.value;
@@ -234,8 +243,8 @@ const AddProduct = () => {
     const fetchProfile = async () => {
         try {
             setloading(true);
-            const response = await fetch(`${backend_url}/api/sellers/fetch-profile`, { 
-                method: 'POST', 
+            const response = await fetch(`${backend_url}/api/sellers/fetch-profile`, {
+                method: 'POST',
                 credentials: 'include',
             });
             const result = await response.json();
@@ -502,7 +511,7 @@ const AddProduct = () => {
                     <div className='italic '>Sold by: {seller.brandName}</div>
                     <div className='sm:text-3xl text-2xl my-8'>Rs.<input type='text' value={price} onChange={(e) => { changeprice(e) }} className='w-[10rem] outline-none px-2 border rounded-xl' placeholder='Price' /></div>
                     <div className='font-semibold'>Description:</div>
-                    <textarea value={description} onChange={(e) => { changedescription(e) }} placeholder='Enter product description (max 1000 letters)' className='addProducttextarea whitespace-pre-wrap border-2 outline-none w-full h-auto text-wrap border-green-700 rounded-xl p-4'></textarea>
+                    <textarea ref={descriptionref} value={description} onChange={(e) => { changedescription(e) }} placeholder='Enter product description (max 1000 letters)' className='addProducttextarea whitespace-pre-wrap border-2 outline-none w-full h-auto text-wrap border-green-700 rounded-xl p-4'></textarea>
                     <div className='font-semibold'>Listed on: {new Date().getDate()} {new Date().toLocaleString('en-US', { month: 'long' })} {new Date().getFullYear()}</div>
                     <div className='font-semibold mt-8'>Sold by:</div>
                     <div className='border-2 border-green-700 rounded-xl py-4 sm:px-4 px-2 flex items-start'>
