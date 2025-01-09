@@ -5,6 +5,7 @@ export const AppContext = createContext(" ");
 export const AppProvider = ({ children }) => { 
 
   const backend_url = 'https://botania.onrender.com';
+  const frontend_url = 'https://botania-by-aditya.vercel.app';
 
   //User
   const [isAuth, setisAuth] = useState(JSON.parse(localStorage.getItem("isAuth")) || false);
@@ -75,6 +76,7 @@ export const AppProvider = ({ children }) => {
     <AppContext.Provider value={{ 
       
       backend_url,
+      frontend_url,
 
       //Seller
       issellerAuth, 

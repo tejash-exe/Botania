@@ -10,7 +10,7 @@ import Notification from '../../../components/Notification';
 const OrderConfirmation = () => {
 
     const navigate = useNavigate();
-    const { isAuth, setisAuth, backend_url } = useContext(AppContext);
+    const { isAuth, setisAuth, backend_url, frontend_url } = useContext(AppContext);
     const [isPopup, setisPopup] = useState(false);
     const [popupMessage, setpopupMessage] = useState("");
     const [keyId, setkeyId] = useState("");
@@ -38,7 +38,7 @@ const OrderConfirmation = () => {
             'notes[shipping address]':
                 `${user.address?.localAddress}${(user.address?.landmark.trim() !== '') ? `, ${user.address?.landmark}` : ''}, ${user.address?.city}, ${user.address?.state} - ${user.address?.pincode}`,
             callback_url: `http://localhost:3000/api/users/confirm-order`,
-            cancel_url: 'http://localhost:5173/user/order-confirmation',
+            cancel_url: `${frontend_url}/user/order-confirmation`,
         };
 
         for (const key in fields) {
