@@ -247,7 +247,7 @@ const AddProduct = () => {
                 setissellerAuth(false);
             }
             else if (result.status == 200) {
-                setseller(result.data);
+                setseller(result.data.seller);
                 // console.log(result.data);
             }
             else if (result.status == 468) {
