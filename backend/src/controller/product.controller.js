@@ -7,13 +7,11 @@ const findProducts = async (req, res) => {
         const searchBy = req.body.searchBy;
         const minPrice = Number.parseInt(req.body.minPrice) || 0;
         const maxPrice = Number.parseInt(req.body.maxPrice) || 5000;
-        // console.log(minPrice);
-        // console.log(maxPrice);
 
         let query = {
             $or: [
                 { name: { $regex: search.trim(), $options: 'i' } },
-                { description: { $regex: search.trim(), $options: 'i' } }
+                { description: { $regex: search.trim(), $options: 'i' } },
             ],
         };
 
@@ -21,7 +19,7 @@ const findProducts = async (req, res) => {
 
         if (search === "false" || search === ":search" || search?.trim() === "") {
             query = {};
-        }
+        };
 
         if (!searchBy) throw new Error("Searchby is missing!");
 
@@ -36,32 +34,29 @@ const findProducts = async (req, res) => {
         }
         else if (searchBy == 'Avg. customer reviews') {
             sortOptions = { 'soldBy.averageRating': -1, createdAt: -1 };
-        }
+        };
 
-        // const products = await Product.find(query).sort(sortOptions)
         const products = await Product.aggregate([
             {
                 $match: {
                     ...query,
                     availability: true,
                     price: { $gte: minPrice || 0, $lte: maxPrice || 5000 },
-                }
+                },
             },
-            // Lookup to populate the soldBy field
             {
                 $lookup: {
-                    from: 'sellers', // The collection name of the Seller model
-                    localField: 'soldBy', // Field in the Product model
-                    foreignField: '_id', // Field in the Seller model
-                    as: 'soldBy', // Alias for the joined data
-                }
+                    from: 'sellers', 
+                    localField: 'soldBy', 
+                    foreignField: '_id', 
+                    as: 'soldBy',
+                },
             },
-            // Unwind the array created by $lookup for easier handling
             {
                 $unwind: {
                     path: '$soldBy',
-                    preserveNullAndEmptyArrays: true, // Optional: Set to false if you want to exclude products without a seller
-                }
+                    preserveNullAndEmptyArrays: true,
+                },
             },
             {
                 $project: {
@@ -81,15 +76,13 @@ const findProducts = async (req, res) => {
             {
                 $sort: sortOptions,
             },
-        ])
-            .catch(error => { throw new Error("Cannot find products related to keyword!") });
+        ]);
+        if(!products) throw new Error("Cannot find products related to keyword!");
 
-        return res.json(new ApiResponse(200, "Product fetched successfully!", products));
-
-
+        res.json(new ApiResponse(200, "Product fetched successfully!", products));
     } catch (error) {
         res.json(new ApiResponse(400, error.message));
-    }
+    };
 };
 
 const productDetails = async (req, res) => {
@@ -101,13 +94,12 @@ const productDetails = async (req, res) => {
             path: 'soldBy',
             select: 'name address brandName profilePicture averageRating',
         }).lean();
-
         if(!product) throw new Error("Product does not exists!");
 
-        res.json(new ApiResponse(200, "Product found succesfully!", product))
+        res.json(new ApiResponse(200, "Product found succesfully!", product));
     } catch (error) {
         res.json(new ApiResponse(400, error.message));
-    }
-}
+    };
+};
 
 export { findProducts, productDetails };
