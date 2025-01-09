@@ -55,18 +55,18 @@ const ProductPage = () => {
   const fetchProduct = async () => {
     try {
       setloading(true);
-      const response = await fetch(`${backend_url}/api/products/getproduct/${productid}/`, { 
+      const response = await fetch(`${backend_url}/api/products/getproduct/${productid}/`, {
         method: "POST",
         credentials: 'include',
       });
       const data = await response.json();
       // console.log(data);
-      if(data.status == 200){
+      if (data.status == 200) {
         setproduct(data.data);
         setposter(data.data.images[0]);
         setformattedDate(formatDateWithMonthName(data.data.createdAt));
       }
-      else{
+      else {
         console.log(data);
         setpopupMessage(data.message);
         setisPopup(true);
@@ -329,8 +329,8 @@ const ProductPage = () => {
             </button>
           </div>}
           {disable && <div className='flex items-center'>
-            {(product.availability == true || cart.includes(productid)) && <button className='sm:px-10 px-6 py-3 text-gray-200 sm:text-base text-sm animate-pulse rounded-3xl duration-200 font-bold border-2 border-gray-200 mr-2'><FontAwesomeIcon className='pr-2' icon={faUser} />
-              Add to cart
+            {(product.availability == true || cart.includes(productid)) && <button className='sm:px-10 px-6 py-3 text-gray-200 sm:text-base text-sm animate-pulse rounded-3xl duration-200 font-bold border-2 border-gray-200 mr-2'><FontAwesomeIcon className='pr-2' icon={faShoppingCart} />
+              ADD TO CART
             </button>}
             {(product.availability == true || wishlist.includes(productid)) && <div className='border-2 cursor-pointer active:scale-95 duration-200 rounded-full border-gray-200 animate-pulse flex justify-center items-center'>
               <FontAwesomeIcon className='sm:p-[0.86rem] p-[0.7rem] w-5 h-5 text-gray-200' icon={solidHeart} />
