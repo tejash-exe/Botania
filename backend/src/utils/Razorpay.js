@@ -60,6 +60,34 @@ const razorpayCreateLinkedAccount = async (seller, email) => {
     }
 };
 
+const razorpayFetchLinkedAccount = async (seller) => {
+    try {
+        const credentials = Buffer.from(`${key_id}:${key_secret}`).toString('base64');
+
+        await fetch(`https://api.razorpay.com/v2/accounts/${seller.razorpay.accountId}`, {
+            method: 'GET',
+            headers: {
+                'Authorization': `Basic ${credentials}`,
+            },
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Account details:', data);
+            })
+            .catch(error => {
+                console.error('Error fetching account details:', error.message);
+            });
+    } catch (error) {
+        console.log("Error fetching linked account:", error);
+        throw new Error(error.message);
+    };
+};
+
 const razorpayRemoveLinkedAccount = async (linkedAccountId) => {
     try {
         const key_id = process.env.RAZORPAY_TEST_ID;
@@ -156,6 +184,7 @@ const razorpayFetchRouteconfig = async (seller) => {
 
 export {
     razorpayCreateLinkedAccount,
+    razorpayFetchLinkedAccount,
     razorpayRemoveLinkedAccount,
     razorpayCreateStakeholder,
     razorpayRequestRouteconfig,

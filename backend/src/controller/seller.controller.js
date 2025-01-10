@@ -12,7 +12,8 @@ import {
     razorpayRequestRouteconfig,
     razorpayUpdateRouteconfig,
     razorpayFetchRouteconfig,
-    razorpayRemoveLinkedAccount
+    razorpayRemoveLinkedAccount,
+    razorpayFetchLinkedAccount
 } from "../utils/Razorpay.js";
 
 //Generate tokens
@@ -406,6 +407,10 @@ const createStakeholder = async (req, res) => {
             throw new Error("Error! First have a linked accountID for Razorpay!");
         };
 
+        //Fetch linkedAccount
+        const result = await razorpayFetchLinkedAccount(seller);
+        console.log(result);
+        
         //Create stakeholder
         const response = await razorpayCreateStakeholder(seller);
         //Save seller
