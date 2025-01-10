@@ -47,11 +47,11 @@ const UpdateProduct = () => {
     const [price, setprice] = useState('');
     const [description, setdescription] = useState('');
     const [formattedDate, setformattedDate] = useState('');
-    
+
     const adjustScroll = () => {
         if (descriptionref.current) {
           const rect = descriptionref.current.getBoundingClientRect();
-          const keyboardOffset = 64; // 4rem = 64px
+          const keyboardOffset = 128; // 4rem = 64px
     
           // If the cursor is below the visible area, scroll up
           if (rect.bottom > window.innerHeight - keyboardOffset) {
@@ -67,25 +67,25 @@ const UpdateProduct = () => {
         }
       };
     
-      useEffect(() => {
-        const textarea = descriptionref.current;
+    //   useEffect(() => {
+    //     const textarea = descriptionref.current;
     
-        if (!textarea) return;
+    //     if (!textarea) return;
     
-        const handleInput = () => adjustScroll();
-        const handleFocus = () => setTimeout(adjustScroll, 300); // Wait for keyboard to open
-        const handleResize = () => adjustScroll();
+    //     const handleInput = () => adjustScroll();
+    //     const handleFocus = () => setTimeout(adjustScroll, 300); // Wait for keyboard to open
+    //     const handleResize = () => adjustScroll();
     
-        textarea.addEventListener('input', handleInput);
-        textarea.addEventListener('focus', handleFocus);
-        window.addEventListener('resize', handleResize);
+    //     textarea.addEventListener('input', handleInput);
+    //     textarea.addEventListener('focus', handleFocus);
+    //     window.addEventListener('resize', handleResize);
     
-        return () => {
-          textarea.removeEventListener('input', handleInput);
-          textarea.removeEventListener('focus', handleFocus);
-          window.removeEventListener('resize', handleResize);
-        };
-      }, []);
+    //     return () => {
+    //       textarea.removeEventListener('input', handleInput);
+    //       textarea.removeEventListener('focus', handleFocus);
+    //       window.removeEventListener('resize', handleResize);
+    //     };
+    //   }, []);
 
     //Handle date
     const formatDateWithMonthName = (isoDate) => {
@@ -161,6 +161,7 @@ const UpdateProduct = () => {
         const textarea = e.target;
         textarea.style.height = "auto"; 
         textarea.style.height = `${textarea.scrollHeight + 10}px`;
+        adjustScroll();
     };
 
     useEffect(() => {
