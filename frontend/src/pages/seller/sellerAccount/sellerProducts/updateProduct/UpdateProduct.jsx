@@ -48,44 +48,6 @@ const UpdateProduct = () => {
     const [description, setdescription] = useState('');
     const [formattedDate, setformattedDate] = useState('');
 
-    const adjustScroll = () => {
-        if (descriptionref.current) {
-          const rect = descriptionref.current.getBoundingClientRect();
-          const keyboardOffset = 128; // 4rem = 64px
-    
-          // If the cursor is below the visible area, scroll up
-          if (rect.bottom > window.innerHeight - keyboardOffset) {
-            window.scrollBy({
-              top: rect.bottom - window.innerHeight + keyboardOffset,
-            //   behavior: 'smooth',
-            });
-          }
-          // If the cursor is above the visible area (optional)
-        //   if (rect.top < 0) {
-        //     descriptionref.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        //   }
-        }
-      };
-    
-    //   useEffect(() => {
-    //     const textarea = descriptionref.current;
-    
-    //     if (!textarea) return;
-    
-    //     const handleInput = () => adjustScroll();
-    //     const handleFocus = () => setTimeout(adjustScroll, 300); // Wait for keyboard to open
-    //     const handleResize = () => adjustScroll();
-    
-    //     textarea.addEventListener('input', handleInput);
-    //     textarea.addEventListener('focus', handleFocus);
-    //     window.addEventListener('resize', handleResize);
-    
-    //     return () => {
-    //       textarea.removeEventListener('input', handleInput);
-    //       textarea.removeEventListener('focus', handleFocus);
-    //       window.removeEventListener('resize', handleResize);
-    //     };
-    //   }, []);
 
     //Handle date
     const formatDateWithMonthName = (isoDate) => {
@@ -144,9 +106,20 @@ const UpdateProduct = () => {
             setpopupMessage("Product name cannot exceed 70 letters!!");
             setisPopup(true);
         };
-        // const textarea = e.target;
-        // textarea.style.height = "auto"; 
-        // textarea.style.height = `${textarea.scrollHeight + 10}px`;
+    };
+
+    const adjustScroll = () => {
+        if (descriptionref.current) {
+            const rect = descriptionref.current.getBoundingClientRect();
+            const keyboardOffset = 128; // 4rem = 64px
+
+            // If the cursor is below the visible area, scroll up
+            if (rect.bottom > window.innerHeight - keyboardOffset) {
+                window.scrollBy({
+                    top: rect.bottom - window.innerHeight + keyboardOffset,
+                });
+            };
+        };
     };
 
     const changedescription = (e) => {
@@ -158,24 +131,21 @@ const UpdateProduct = () => {
             setpopupMessage("Description cannot exceed 1000 letters!!");
             setisPopup(true);
         };
-        // const textarea = e.target;
-        // textarea.style.height = "auto"; 
-        // textarea.style.height = `${textarea.scrollHeight + 10}px`;
     };
-    
+
     useEffect(() => {
         if (descriptionref.current) {
             const textarea = descriptionref.current;
-            textarea.style.height = "auto"; 
+            textarea.style.height = "auto";
             textarea.style.height = `${textarea.scrollHeight + 10}px`;
-            adjustScroll();
+            requestAnimationFrame(adjustScroll);
         };
     }, [description, loading]);
 
     useEffect(() => {
         if (productNameref.current) {
             const textarea = productNameref.current;
-            textarea.style.height = "auto"; 
+            textarea.style.height = "auto";
             textarea.style.height = `${textarea.scrollHeight + 10}px`;
         };
     }, [productName, loading]);
@@ -323,9 +293,9 @@ const UpdateProduct = () => {
     const fetchProducttoUpdate = async () => {
         try {
             setloading(true);
-            const response = await fetch(`${backend_url}/api/sellers/fetch-product-to-update/${productId}`, { 
+            const response = await fetch(`${backend_url}/api/sellers/fetch-product-to-update/${productId}`, {
                 method: 'POST',
-                credentials: 'include', 
+                credentials: 'include',
             });
             const result = await response.json();
             if (result.status == 469) {
@@ -349,12 +319,12 @@ const UpdateProduct = () => {
                 setformattedDate(formatDateWithMonthName(result.data.product.createdAt));
                 setavailability(result.data.product.availability);
             }
-            else if (result.status == 468){
+            else if (result.status == 468) {
                 setisActivated(false);
                 setpopupMessage(result.message);
                 setisPopup(true);
             }
-            else if (result.status == 467){
+            else if (result.status == 467) {
                 setavailability(false);
                 setpopupMessage(result.message);
                 setisPopup(true);
@@ -503,12 +473,12 @@ const UpdateProduct = () => {
                     setisProductUpdated(true);
                     navigate(`/seller/account/products/${productId}`);
                 }
-                else if (result.status == 468){
+                else if (result.status == 468) {
                     setisActivated(false);
                     setpopupMessage(result.message);
                     setisPopup(true);
                 }
-                else if (result.status == 467){
+                else if (result.status == 467) {
                     setavailability(false);
                     setpopupMessage(result.message);
                     setisPopup(true);
@@ -587,7 +557,7 @@ const UpdateProduct = () => {
                 cancelUnavailable();
                 fetchProducttoUpdate();
             }
-            else if (result.status == 468){
+            else if (result.status == 468) {
                 setisActivated(false);
                 setpopupMessage(result.message);
                 setisPopup(true);
