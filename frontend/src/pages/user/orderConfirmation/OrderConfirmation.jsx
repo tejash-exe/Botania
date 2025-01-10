@@ -37,7 +37,7 @@ const OrderConfirmation = () => {
             'prefill[email]': user.email,
             'notes[shipping address]':
                 `${user.address?.localAddress}${(user.address?.landmark.trim() !== '') ? `, ${user.address?.landmark}` : ''}, ${user.address?.city}, ${user.address?.state} - ${user.address?.pincode}`,
-            callback_url: `http://localhost:3000/api/users/confirm-order`,
+            callback_url: `${backend_url}/api/users/confirm-order`,
             cancel_url: `${frontend_url}/user/order-confirmation`,
         };
 
