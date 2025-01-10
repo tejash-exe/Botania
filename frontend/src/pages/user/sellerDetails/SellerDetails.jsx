@@ -268,7 +268,7 @@ const SellerDetails = () => {
                 </div>
             </div>}
             {!loading && !error && <div className={'py-[4rem] flex justify-center mx-2 sm:mx-0 duration-300'}>
-                <div className='md:w-[50rem] sm:w-[37rem]'>
+                <div className='md:max-w-[50rem] sm:max-w-[37rem]'>
                     <div className='flex sm:mx-4 sm:mt-8 mt-4 items-center bg-gray-100 rounded-full py-4 md:px-0 px-4'>
                         <div className='sm:mx-8 mx-2 flex-shrink-0'>
                             <img className='drop-shadow-lg hover:scale-105 duration-300 md:w-[8rem] sm:w-[5rem] sm:h-[5rem] h-[4rem] w-[4rem] md:h-[8rem] object-cover rounded-full' src={seller.profilePicture} />
@@ -298,7 +298,7 @@ const SellerDetails = () => {
                             <div className='text-sm sm:text-base'>Products</div>
                         </div>
                     </div>
-                    {(seller.address?.pincode !== '111111') && <div className='bg-gray-100 mb-6 p-6 rounded-3xl sm:px-16 px-10 sm:mx-4 mt-4 w-full'>
+                    {(seller.address?.pincode !== '111111') && <div className='bg-gray-100 mb-6 p-6 rounded-3xl sm:px-16 px-10 sm:mx-4 mt-4'>
                         <div className='font-semibold mb-2 text-base sm:text-lg'>Address :</div>
                         <div className=' text-sm sm:text-base'>{seller.address?.localAddress + ((seller.address?.landmark !== "") ? (', ' + seller.address?.landmark) : "") + ", " + seller.address?.city + ", " + seller.address?.state}</div>
                         <div className='mt-2 text-sm sm:text-base'>PIN: {seller.address?.pincode} Contact: {seller.address?.contact}</div>
