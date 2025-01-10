@@ -20,8 +20,6 @@ const UpdateProduct = () => {
     const discardbuttonref = useRef();
     const updatebuttonref = useRef();
     const unavailablebuttonref = useRef();
-    const productNameref = useRef();
-    const descriptionref = useRef();
     const { issellerAuth, setissellerAuth, setsellerredirect, setisProductUpdated, backend_url } = useContext(AppContext);
     const [updateProductPopup, setupdateProductPopup] = useState(false);
     const [discardPopup, setdiscardPopup] = useState(false);
@@ -53,9 +51,9 @@ const UpdateProduct = () => {
     const formatDateWithMonthName = (isoDate) => {
         const date = new Date(isoDate);
         const day = date.getDate().toString().padStart(2, '0');
-        const monthName = date.toLocaleString('default', { month: 'long' }); // Full month name
+        const monthName = date.toLocaleString('default', { month: 'long' });
         const year = date.getFullYear();
-        return `${day} ${monthName} ${year}`; // Format: DD Month YYYY
+        return `${day} ${monthName} ${year}`;
     };
 
     //Handle popup
@@ -108,20 +106,6 @@ const UpdateProduct = () => {
         };
     };
 
-    const adjustScroll = () => {
-        if (descriptionref.current) {
-            const rect = descriptionref.current.getBoundingClientRect();
-            const keyboardOffset = 128; // 4rem = 64px
-
-            // If the cursor is below the visible area, scroll up
-            if (rect.bottom > window.innerHeight - keyboardOffset) {
-                window.scrollBy({
-                    top: rect.bottom - window.innerHeight + keyboardOffset,
-                });
-            };
-        };
-    };
-
     const changedescription = (e) => {
         const value = e.target.value;
         if (/^[\s\S]{0,1000}$/.test(value)) {
@@ -132,25 +116,6 @@ const UpdateProduct = () => {
             setisPopup(true);
         };
     };
-
-    useEffect(() => {
-        if (descriptionref.current) {
-            const textarea = descriptionref.current;
-            textarea.style.height = "auto";
-            textarea.style.height = `${textarea.scrollHeight}px`;
-            if (document.activeElement === textarea) {
-                requestAnimationFrame(adjustScroll);
-            };
-        };
-    }, [description, loading]);
-
-    useEffect(() => {
-        if (productNameref.current) {
-            const textarea = productNameref.current;
-            textarea.style.height = "auto";
-            textarea.style.height = `${textarea.scrollHeight}px`;
-        };
-    }, [productName, loading]);
 
     const changeprice = (e) => {
         const value = e.target.value;
@@ -669,7 +634,7 @@ const UpdateProduct = () => {
                 </div>
                 <div className='sm:p-8 p-4 md:w-[40rem] md:pt-[5rem]'>
                     <div className='flex items-end'>
-                        <textarea ref={productNameref} type='text' value={productName} onChange={(e) => { changeproductName(e) }} placeholder='Enter product name' className='addProducttextarea sm:text-3xl text-2xl font-bold border outline-none rounded-xl px-1 overflow-auto w-full'></textarea>
+                        <textarea type='text' rows={2} value={productName} onChange={(e) => { changeproductName(e) }} placeholder='Enter product name' className='addProducttextarea sm:text-3xl text-2xl font-bold border outline-none rounded-xl px-1 overflow-auto w-full'></textarea>
                     </div>
                     <div className='italic '>Sold by: {seller.brandName}</div>
                     <div className='sm:text-3xl text-2xl my-8'>Rs.<input type='text' value={price} onChange={(e) => { changeprice(e) }} className='w-[10rem] outline-none px-2 border rounded-xl' placeholder='Price' /></div>
@@ -678,7 +643,7 @@ const UpdateProduct = () => {
                     </div>
                     <div className='mb-8 mt-2'>Note - Select this only if you want to make your product unavailable. After making it unavailable you cannot edit this product nor you can sell this product on botania. This product will be marked sold.</div>
                     <div className='font-semibold'>Description:</div>
-                    <textarea ref={descriptionref} value={description} onChange={(e) => { changedescription(e) }} placeholder='Enter product description (max 1000 letters)' className='addProducttextarea whitespace-pre-wrap border-2 outline-none w-full h-auto text-wrap border-green-700 rounded-xl p-4'></textarea>
+                    <textarea value={description} rows={7} onChange={(e) => { changedescription(e) }} placeholder='Enter product description (max 1000 letters)' className='addProducttextarea whitespace-pre-wrap border-2 outline-none w-full h-auto text-wrap border-green-700 rounded-xl p-4'></textarea>
                     <div className='font-semibold'>Listed on: {formattedDate}</div>
                     <div className='font-semibold mt-8'>Sold by:</div>
                     <div className='border-2 border-green-700 rounded-xl py-4 sm:px-4 px-2 flex items-start'>
