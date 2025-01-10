@@ -378,6 +378,7 @@ const createLinkedAccount = async (req, res) => {
         //Save seller
         seller.razorpay.email = email.trim();
         seller.razorpay.accountId = result.id;
+        seller.beneficiary_name = result.legal_business_name;
 
         const savedSeller = await seller.save();
         if (!savedSeller) {
@@ -407,10 +408,6 @@ const createStakeholder = async (req, res) => {
             throw new Error("Error! First have a linked accountID for Razorpay!");
         };
 
-        //Fetch linkedAccount
-        const result = await razorpayFetchLinkedAccount(seller);
-        console.log(result);
-        
         //Create stakeholder
         const response = await razorpayCreateStakeholder(seller);
         //Save seller
@@ -463,9 +460,9 @@ const requestRouteConfig = async (req, res) => {
 const updateRouteConfig = async (req, res) => {
     try {
         //Input validation
-        const { acc_no, ifsc_code, beneficiary_name } = req.body;
+        const { acc_no, ifsc_code } = req.body;
 
-        if ([acc_no, ifsc_code, beneficiary_name].some((field => field == undefined || field?.trim() === ""))) {
+        if ([acc_no, ifsc_code].some((field => field == undefined || field?.trim() === ""))) {
             throw new Error("Error! Required fields are missing");
         };
 
@@ -485,11 +482,14 @@ const updateRouteConfig = async (req, res) => {
             throw new Error("Error! First have a routeconfig ID for Razorpay!");
         };
 
+        if (seller.razorpay.beneficiary_name == undefined || seller.razorpay.beneficiary_name === "") {
+            throw new Error("Error! First have a linked account with brandname for Razorpay!");
+        };
+
         //Update route config
-        const response = await razorpayUpdateRouteconfig(seller, acc_no.trim(), ifsc_code.trim(), beneficiary_name.trim());
+        const response = await razorpayUpdateRouteconfig(seller, acc_no.trim(), ifsc_code.trim(), seller.razorpay.beneficiary_name);
 
         //Save seller
-        seller.razorpay.beneficiary_name = beneficiary_name.trim();
         seller.razorpay.account_number = acc_no.trim();
         seller.razorpay.ifsc_code = ifsc_code.trim();
         seller.razorpay.activationStatus = response.activation_status;

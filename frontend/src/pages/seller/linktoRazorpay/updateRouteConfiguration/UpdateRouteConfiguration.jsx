@@ -42,10 +42,6 @@ const UpdateRouteConfiguration = () => {
         };
     };
 
-    const handlebeneficiary_name = (e) => {
-        setbeneficiary_name(e.target.value);
-    };
-
     const handleifsc_code = (e) => {
         setifsc_code(e.target.value);
     };
@@ -110,6 +106,7 @@ const UpdateRouteConfiguration = () => {
             else if (result.status == 200) {
                 // console.log(result.data.razorpay);
                 setrazorpay(result.data.razorpay);
+                setbeneficiary_name(result.data.razorpay.beneficiary_name);
             }
             else {
                 setpopupMessage(result.message);
@@ -244,7 +241,7 @@ const UpdateRouteConfiguration = () => {
                     {(razorpay.account_number === '') && <div className='flex flex-col border-2 border-black rounded-3xl p-8 mt-6'>
                         <div className='font-semibold'>Update Route Configuration :</div>
                         <div className='mb-4'>(activation status: {razorpay.activationStatus})</div>
-                        <input type="text" value={beneficiary_name} onChange={(e) => { handlebeneficiary_name(e) }} placeholder='Enter Beneficiary name' className="bg-gray-200 outline-none px-4 h-10 rounded-xl sm:w-[20rem] mb-4" />
+                        <input type="text" placeholder={beneficiary_name} disabled={true} className="bg-gray-200 outline-none px-4 h-10 rounded-xl sm:w-[20rem] mb-4" />
                         <input type="text" value={acc_no} onChange={(e) => { handleacc_no(e) }} placeholder='Enter Account number' className="bg-gray-200 outline-none px-4 h-10 rounded-xl sm:w-[20rem]" />
                         <div hidden={isacc_no}>(account number must be between 5 to 20 digits)</div>
                         <input type="text" value={ifsc_code} onChange={(e) => { handleifsc_code(e) }} placeholder='Enter IFSC code' className="bg-gray-200 mt-4 outline-none px-4 h-10 rounded-xl sm:w-[20rem] " />

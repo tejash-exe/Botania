@@ -156,11 +156,11 @@ const razorpayUpdateRouteconfig = async (seller, acc_No, ifsc_code, beneficiary_
     try {
         const response = await instance.products.edit(seller.razorpay.accountId, seller.razorpay.routeconfigId, {
             "settlements": {
+                "beneficiary_name": beneficiary_name,
                 "account_number": acc_No,
                 "ifsc_code": ifsc_code,
-                "beneficiary_name": beneficiary_name,
             },
-            "tnc_accepted": true
+            "tnc_accepted": true,
         });
         console.log(response);
         return response;
