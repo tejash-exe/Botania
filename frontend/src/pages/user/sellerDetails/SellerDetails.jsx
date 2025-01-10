@@ -298,7 +298,7 @@ const SellerDetails = () => {
                             <div className='text-sm sm:text-base'>Products</div>
                         </div>
                     </div>
-                    {(seller.address?.pincode !== '111111') && <div className='bg-gray-100 mb-6 p-6 rounded-3xl sm:px-16 px-10 sm:mx-4 mt-4'>
+                    {(seller.address?.pincode !== '111111') && <div className='bg-gray-100 mb-6 p-6 rounded-3xl sm:px-16 px-10 sm:mx-4 mt-4 w-full'>
                         <div className='font-semibold mb-2 text-base sm:text-lg'>Address :</div>
                         <div className=' text-sm sm:text-base'>{seller.address?.localAddress + ((seller.address?.landmark !== "") ? (', ' + seller.address?.landmark) : "") + ", " + seller.address?.city + ", " + seller.address?.state}</div>
                         <div className='mt-2 text-sm sm:text-base'>PIN: {seller.address?.pincode} Contact: {seller.address?.contact}</div>
