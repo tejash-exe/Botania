@@ -500,7 +500,7 @@ const updateRouteConfig = async (req, res) => {
         };
 
         res.json(new ApiResponse(200, "Route updated succesfully!", {
-            beneficiary_name: beneficiary_name.trim(),
+            beneficiary_name: seller.razorpay.beneficiary_name.trim(),
             acc_no: acc_no.trim(),
             ifsc_code: ifsc_code.trim(),
             activationStatus: response.activation_status,
