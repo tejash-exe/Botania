@@ -61,9 +61,9 @@ const UpdateProduct = () => {
             });
           }
           // If the cursor is above the visible area (optional)
-          if (rect.top < 0) {
-            descriptionref.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }
+        //   if (rect.top < 0) {
+        //     descriptionref.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        //   }
         }
       };
     
@@ -144,9 +144,9 @@ const UpdateProduct = () => {
             setpopupMessage("Product name cannot exceed 70 letters!!");
             setisPopup(true);
         };
-        const textarea = e.target;
-        textarea.style.height = "auto"; 
-        textarea.style.height = `${textarea.scrollHeight + 10}px`;
+        // const textarea = e.target;
+        // textarea.style.height = "auto"; 
+        // textarea.style.height = `${textarea.scrollHeight + 10}px`;
     };
 
     const changedescription = (e) => {
@@ -158,17 +158,17 @@ const UpdateProduct = () => {
             setpopupMessage("Description cannot exceed 1000 letters!!");
             setisPopup(true);
         };
-        const textarea = e.target;
-        textarea.style.height = "auto"; 
-        textarea.style.height = `${textarea.scrollHeight + 10}px`;
-        adjustScroll();
+        // const textarea = e.target;
+        // textarea.style.height = "auto"; 
+        // textarea.style.height = `${textarea.scrollHeight + 10}px`;
     };
-
+    
     useEffect(() => {
         if (descriptionref.current) {
             const textarea = descriptionref.current;
             textarea.style.height = "auto"; 
             textarea.style.height = `${textarea.scrollHeight + 10}px`;
+            adjustScroll();
         };
     }, [description, loading]);
 
