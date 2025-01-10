@@ -138,7 +138,9 @@ const UpdateProduct = () => {
             const textarea = descriptionref.current;
             textarea.style.height = "auto";
             textarea.style.height = `${textarea.scrollHeight + 10}px`;
-            requestAnimationFrame(adjustScroll);
+            if (document.activeElement === textarea) {
+                requestAnimationFrame(adjustScroll);
+            };
         };
     }, [description, loading]);
 
