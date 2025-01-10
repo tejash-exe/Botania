@@ -251,11 +251,11 @@ const AddProduct = () => {
             else if (result.status == 200) {
                 setseller(result.data.seller);
                 // console.log(result.data);
-            }
-            else if (result.status == 468) {
-                setpopupMessage(result.message);
-                setisPopup(true);
-                setisActivated(false);
+                if(result.data.seller.activated == false){
+                    setisActivated(false);
+                    setpopupMessage("Account not activated!");
+                    setisPopup(true);
+                };
             }
             else {
                 console.log(result);
