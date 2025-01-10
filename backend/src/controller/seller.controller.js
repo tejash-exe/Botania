@@ -387,7 +387,7 @@ const createLinkedAccount = async (req, res) => {
 
         res.json(new ApiResponse(200, "Linked account created Succesfully!", { email: email.trim(), accountId: result.id }));
     } catch (error) {
-        if (error.message === 'Merchant email already exists for account - PN2Mj6lHxZkm9n') {
+        if (error.message === 'Merchant email already exists for account - PhuVLctsTVVdmQ') {
             res.json(new ApiResponse(400, 'Email already exists!'));
         }
         else {
