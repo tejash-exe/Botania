@@ -378,7 +378,7 @@ const createLinkedAccount = async (req, res) => {
         //Save seller
         seller.razorpay.email = email.trim();
         seller.razorpay.accountId = result.id;
-        seller.beneficiary_name = result.legal_business_name;
+        seller.razorpay.beneficiary_name = result.legal_business_name;
 
         const savedSeller = await seller.save();
         if (!savedSeller) {
