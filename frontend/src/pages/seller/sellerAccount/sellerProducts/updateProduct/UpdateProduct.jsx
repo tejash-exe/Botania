@@ -57,7 +57,7 @@ const UpdateProduct = () => {
           if (rect.bottom > window.innerHeight - keyboardOffset) {
             window.scrollBy({
               top: rect.bottom - window.innerHeight + keyboardOffset,
-              behavior: 'smooth',
+            //   behavior: 'smooth',
             });
           }
           // If the cursor is above the visible area (optional)
