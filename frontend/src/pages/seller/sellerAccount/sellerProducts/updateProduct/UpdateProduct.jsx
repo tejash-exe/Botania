@@ -29,6 +29,7 @@ const UpdateProduct = () => {
     const [active, setactive] = useState(0);
     const [error, seterror] = useState(false);
     const [loading, setloading] = useState(true);
+    const [disable, setdisable] = useState(false);
     const [seller, setseller] = useState({});
     const [availability, setavailability] = useState(true);
     const [isActivated, setisActivated] = useState(true);
@@ -132,6 +133,7 @@ const UpdateProduct = () => {
     const addimage = () => {
         if (pictures.length < 6) {
             if (croppedAreaPixels) {
+                setdisable(true);
                 const canvas = document.createElement("canvas");
                 const img = new Image();
                 img.src = image;
@@ -160,6 +162,7 @@ const UpdateProduct = () => {
                             setpopupMessage("Failed to process the image!");
                             setisPopup(true);
                             cropcancel();
+                            setdisable(false);
                             return;
                         }
                         const file = new File([blob], `image-${Date.now()}.jpg`, { type: "image/jpeg" });
@@ -178,6 +181,7 @@ const UpdateProduct = () => {
             setpopupMessage("Cannot add more than 6 images!");
             setisPopup(true);
             cropcancel();
+            setdisable(false);
         };
     };
 
@@ -225,7 +229,7 @@ const UpdateProduct = () => {
 
     //Handle crop cancel
     const cropcancel = () => {
-        if (!loading && issellerAuth) {
+        if (!loading && issellerAuth && !disable) {
             addimageref.current.value = "";
             setImage(null);
             setcropPopup(false);

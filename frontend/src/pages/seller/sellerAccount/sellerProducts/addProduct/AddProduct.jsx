@@ -21,6 +21,7 @@ const AddProduct = () => {
     const [active, setactive] = useState(0);
     const [error, seterror] = useState(false);
     const [loading, setloading] = useState(true);
+    const [disable, setdisable] = useState(false);
     const [isActivated, setisActivated] = useState(true);
     const [seller, setseller] = useState({});
     const [isPopup, setisPopup] = useState(false);
@@ -109,6 +110,7 @@ const AddProduct = () => {
     const addimage = () => {
         if (pictures.length < 6) {
             if (croppedAreaPixels) {
+                setdisable(true);
                 const canvas = document.createElement("canvas");
                 const img = new Image();
                 img.src = image;
@@ -139,6 +141,7 @@ const AddProduct = () => {
                         const croppedImageUrl = URL.createObjectURL(blob);
                         setpictures((prevPictures) => [...prevPictures, croppedImageUrl]);
                         cropcancel();
+                        setdisable(false);
                     });
                 };
             } else {
@@ -149,6 +152,7 @@ const AddProduct = () => {
             setpopupMessage("Cannot add more than 6 images!");
             setisPopup(true);
             cropcancel();
+            setdisable(false);
         };
     };
 
@@ -193,7 +197,7 @@ const AddProduct = () => {
 
     //Handle crop cancel
     const cropcancel = () => {
-        if (!loading && issellerAuth) {
+        if (!loading && issellerAuth && !disable) {
             addimageref.current.value = "";
             setImage(null);
             setcropPopup(false);
@@ -440,7 +444,7 @@ const AddProduct = () => {
             {cropPopup && <div className='fixed backdrop-blur-sm z-[100] flex justify-center items-center w-screen h-screen top-0 right-0'>
                 <div className='flex justify-between items-center flex-col w-[40rem] h-[35rem] mx-2 bg-black rounded-2xl relative'>
                     <div className='ml-auto mb-2'>
-                        <FontAwesomeIcon onClick={cropcancel} className='m-4 cursor-pointer duration-200 hover:text-red-600 p-2 flex-grow text-white h-6 w-6' icon={faXmark} />
+                        <FontAwesomeIcon disabled={loading || disable} onClick={cropcancel} className='m-4 cursor-pointer duration-200 hover:text-red-600 p-2 flex-grow text-white h-6 w-6' icon={faXmark} />
                     </div>
                     <div className='flex flex-col justify-center items-center mb-20'>
                         {/* Display Cropper if an image is selected */}
@@ -455,11 +459,11 @@ const AddProduct = () => {
                                 onZoomChange={setZoom}
                             />
                         </div>
-                        <button disabled={loading} onClick={addimage} className="my-3 flex justify-center items-center w-[8rem] py-2 rounded-md bg-green-700 text-white hover:bg-green-800 duration-200" >
+                        <button disabled={loading || disable} onClick={addimage} className="my-3 flex justify-center items-center w-[8rem] py-2 rounded-md bg-green-700 text-white hover:bg-green-800 duration-200" >
                             {(loading) ? <img className='w-5 h-5 invert animate-spin' src="/loading.png" alt="" /> :
                                 <div>Add image</div>}
                         </button>
-                        <button className="my-1 px-6 py-2 rounded-md bg-red-400 text-white hover:bg-red-600 duration-200 " disabled={loading} onClick={cropcancel}> Cancel</button>
+                        <button className="my-1 px-6 py-2 rounded-md bg-red-400 text-white hover:bg-red-600 duration-200 " disabled={loading || disable} onClick={cropcancel}> Cancel</button>
                     </div>
                 </div>
             </div>}

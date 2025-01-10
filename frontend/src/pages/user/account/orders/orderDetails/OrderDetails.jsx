@@ -14,7 +14,6 @@ const OrderDetails = () => {
     const { orderId } = useParams();
     const navigate = useNavigate();
     const addimageref = useRef();
-    const reviewTextref = useRef();
     const deliveredbuttonref = useRef();
     const deliveredPopupmenuref = useRef();
     const { profilePicture, name, email, isAuth, setisAuth, setredirect, backend_url } = useContext(AppContext);
@@ -36,6 +35,7 @@ const OrderDetails = () => {
     const [error, seterror] = useState(false);
     const [loading, setloading] = useState(true);
     const [loading2, setloading2] = useState(false);
+    const [disable, setdisable] = useState(false);
     const [reviewText, setreviewText] = useState('');
     const [deliveredPopup, setdeliveredPopup] = useState(false);
     const [isReviewed, setisReviewed] = useState(false);
@@ -75,6 +75,7 @@ const OrderDetails = () => {
     const addimage = () => {
         if (pictures.length < 5) {
             if (croppedAreaPixels) {
+                setdisable(true);
                 const canvas = document.createElement("canvas");
                 const img = new Image();
                 img.src = image;
@@ -105,6 +106,7 @@ const OrderDetails = () => {
                         const croppedImageUrl = URL.createObjectURL(blob);
                         setpictures((prevPictures) => [...prevPictures, croppedImageUrl]);
                         cropcancel();
+                        setdisable(false);
                     });
                 };
             } else {
@@ -115,6 +117,7 @@ const OrderDetails = () => {
             setpopupMessage("Cannot add more than 5 images!");
             setisPopup(true);
             cropcancel();
+            setdisable(false);
         };
     };
 
@@ -172,7 +175,7 @@ const OrderDetails = () => {
 
     //Handle crop cancel
     const cropcancel = () => {
-        if (!loading && isAuth) {
+        if (!loading && isAuth && !disable) {
             addimageref.current.value = "";
             setImage(null);
             setcropPopup(false);
