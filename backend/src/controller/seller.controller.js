@@ -398,6 +398,12 @@ const createLinkedAccount = async (req, res) => {
 
 const createStakeholder = async (req, res) => {
     try {
+        //Input validation
+        const { pan } = req.body;
+        if(pan == undefined || pan.trim() == "") {
+            throw new Error("Pan is missing!");
+        };
+
         const seller = await Seller.findById(req.seller._id);
         if (!seller) throw new Error("Cannot find seller!");
 
@@ -409,7 +415,7 @@ const createStakeholder = async (req, res) => {
         };
 
         //Create stakeholder
-        const response = await razorpayCreateStakeholder(seller);
+        const response = await razorpayCreateStakeholder(seller, pan.trim());
         //Save seller
         seller.razorpay.stakeholderId = response.id;
 

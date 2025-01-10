@@ -17,6 +17,11 @@ const CreateStakeholder = () => {
     const [popupMessage, setpopupMessage] = useState("");
     const [razorpay, setrazorpay] = useState({});
     const [incomplete, setincomplete] = useState(false);
+    const [pan, setpan] = useState('');
+
+    const handlePan = (e) => {
+        setpan(e.target.value);
+    };
 
     //Check incomplete
     useEffect(() => {
@@ -104,36 +109,48 @@ const CreateStakeholder = () => {
 
     //Create stakeholder
     const createStakeholder = async () => {
-        try {
-            setloading(true);
-            const response = await fetch(`${backend_url}/api/sellers/create-stakeholder`, {
-                method: "POST",
-                credentials: 'include',
-            });
-            const result = await response.json();
-            if (result.status == 469) {
-                setpopupMessage(result.message);
+        if (pan.trim() !== "") {
+            try {
+                setloading(true);
+                const response = await fetch(`${backend_url}/api/sellers/create-stakeholder`, {
+                    method: "POST",
+                    credentials: 'include',
+                    headers: {
+                        "Content-type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        pan: pan,
+                    })
+                });
+                const result = await response.json();
+                if (result.status == 469) {
+                    setpopupMessage(result.message);
+                    setisPopup(true);
+                    setissellerAuth(false);
+                }
+                else if (result.status == 200) {
+                    // console.log(result);
+                    // setrazorpay(result.data.razorpay);
+                    setpopupMessage("Stakeholder created succesfully!");
+                    setisPopup(true);
+                }
+                else {
+                    setpopupMessage(result.message);
+                    setisPopup(true);
+                    console.log(result);
+                };
+            } catch (error) {
+                console.log(error);
+                setpopupMessage(error.message);
                 setisPopup(true);
-                setissellerAuth(false);
-            }
-            else if (result.status == 200) {
-                // console.log(result);
-                // setrazorpay(result.data.razorpay);
-                setpopupMessage("Stakeholder created succesfully!");
-                setisPopup(true);
-            }
-            else {
-                setpopupMessage(result.message);
-                setisPopup(true);
-                console.log(result);
+            } finally {
+                setloading(false);
+                fetchRazorpay();
             };
-        } catch (error) {
-            console.log(error);
-            setpopupMessage(error.message);
+        }
+        else {
+            setpopupMessage("Pan Card Number is required!");
             setisPopup(true);
-        } finally {
-            setloading(false);
-            fetchRazorpay();
         };
     };
 
@@ -163,6 +180,8 @@ const CreateStakeholder = () => {
                         <div className='mb-4 font-semibold'>Create a stakeholder :</div>
                         <div className=''>Linked Account ID :</div>
                         <input type="text" disabled placeholder={razorpay.accountId} className="bg-gray-200 outline-none px-4 h-10 rounded-xl sm:w-[20rem]" />
+                        <div className='mt-4'>Pan Card number :</div>
+                        <input type="text" placeholder='Enter Pan Card number' value={pan} onChange={(e) => { handlePan(e); }} className="bg-gray-200 outline-none px-4 h-10 rounded-xl sm:w-[20rem]" />
                         <div className='flex'>
                             <button onClick={createStakeholder} className='text-white bg-black duration-200 active:scale-95 w-min px-5 py-2 rounded-xl text-nowrap mt-4'>Create Stakeholder</button>
                         </div>

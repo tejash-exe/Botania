@@ -115,7 +115,7 @@ const razorpayRemoveLinkedAccount = async (linkedAccountId) => {
     }
 };
 
-const razorpayCreateStakeholder = async (seller) => {
+const razorpayCreateStakeholder = async (seller, pan) => {
     try {
         const response = await instance.stakeholders.create(seller.razorpay.accountId, {
             "name": seller.name,
@@ -131,7 +131,10 @@ const razorpayCreateStakeholder = async (seller) => {
             },
             "notes": {
                 "sellerId": seller._id.toString(),
-            }
+            },
+            "kyc": {
+                "pan": pan,
+            },
         });
 
         console.log("Stakeholder Created:", response);
