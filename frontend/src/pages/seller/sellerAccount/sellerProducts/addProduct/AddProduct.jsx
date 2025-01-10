@@ -109,7 +109,7 @@ const AddProduct = () => {
     //Add image
     const addimage = () => {
         if (pictures.length < 6) {
-            if (croppedAreaPixels) {
+            if (croppedAreaPixels && !disable) {
                 setdisable(true);
                 const canvas = document.createElement("canvas");
                 const img = new Image();
@@ -144,7 +144,11 @@ const AddProduct = () => {
                         setdisable(false);
                     });
                 };
-            } else {
+            } else if (disable){
+                setpopupMessage("Please let the image to be processed!");
+                setisPopup(true);
+            }
+            else {
                 setpopupMessage("Please crop the image before adding!");
                 setisPopup(true);
             };
