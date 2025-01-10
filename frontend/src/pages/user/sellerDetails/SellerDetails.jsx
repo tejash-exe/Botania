@@ -300,7 +300,7 @@ const SellerDetails = () => {
                     </div>
                     {(seller.address?.pincode !== '111111') && <div className='bg-gray-100 mb-6 p-6 rounded-3xl sm:px-16 px-10 sm:mx-4 mt-4'>
                         <div className='font-semibold mb-2 text-base sm:text-lg'>Address :</div>
-                        <div className=' text-sm sm:text-base'>{seller.address?.localAddress + ((seller.address?.landmark !== "") ? (', ' + seller.address?.landmark) : "") + ", " + seller.address?.city + ", " + seller.address?.state}</div>
+                        <div className=' text-sm sm:text-base w-full'>{seller.address?.localAddress + ((seller.address?.landmark !== "") ? (', ' + seller.address?.landmark) : "") + ", " + seller.address?.city + ", " + seller.address?.state}</div>
                         <div className='mt-2 text-sm sm:text-base'>PIN: {seller.address?.pincode} Contact: {seller.address?.contact}</div>
                     </div>}
                     <div className='font-semibold sm:text-xl flex mb-2'>
