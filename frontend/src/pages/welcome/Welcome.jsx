@@ -1,5 +1,7 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEnvelope, faHeadset, faLocationDot, faPhone } from '@fortawesome/free-solid-svg-icons';
 
 const Welcome = () => {
 
@@ -68,6 +70,15 @@ const Welcome = () => {
             <div className='mt-6 italic sm:text-2xl text-justify'>
               "At Botania, we ensure a seamless and secure payment experience, powered by Razorpay, a trusted leader in online transactions. Razorpay brings to the platform a host of advanced features, including robust fraud detection, multi-currency support, instant refunds, and a user-friendly interface for hassle-free payments. Whether you're buying or selling, Razorpay guarantees fast and secure processing, offering multiple payment options such as credit cards, debit cards, UPI, and net banking. With Razorpay's cutting-edge technology, Botania delivers a reliable and efficient payment experience, making your transactions smooth and worry-free."
             </div>
+          </div>
+        </div>
+        <div className='bg-black flex flex-col py-4 items-center text-white'>
+          <div className='md:max-w-[50rem] mx-4'>
+            <div>By using this website, you automatically agree to our <Link target='_blank' to='https://merchant.razorpay.com/policy/PN2MkT4qFlPZzF/terms' className='text-blue-500'>Terms and Conditions</Link>, <Link target='_blank' to='https://merchant.razorpay.com/policy/PN2MkT4qFlPZzF/refund' className='text-blue-500'>Refund Policy</Link>, <Link target='_blank' to='https://merchant.razorpay.com/policy/PN2MkT4qFlPZzF/shipping' className='text-blue-500'>Shipping Policy</Link>, and <Link target='_blank' to='https://drive.google.com/file/d/1p5QMw-GU2e-FUJBX9bdoS-9h2FHHwHwo/view?usp=sharing' className='text-blue-500'>Privacy Policy</Link>.</div>
+            <div className='mt-4 mb-2 text-lg'><FontAwesomeIcon className='mr-2' icon={faHeadset} /> Contact us at :</div>
+            <div className='mt-1'><FontAwesomeIcon className='mr-2 w-4 h-4' icon={faPhone} />+91-6201010626</div>
+            <div className='mt-1'><FontAwesomeIcon className='mr-2 w-4 h-4' icon={faEnvelope} />tejash835274@gmail.com</div>
+            <div className='mt-1'><FontAwesomeIcon className='mr-2 w-4 h-4' icon={faLocationDot} />Hostel-J, NIT Jamshedpur, Adityapur, Jamshedpur, Jharkhand - 831014</div>
           </div>
         </div>
       </div>
