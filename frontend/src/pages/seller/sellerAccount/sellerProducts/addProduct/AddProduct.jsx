@@ -16,8 +16,6 @@ const AddProduct = () => {
     const addPopupmenuref = useRef();
     const discardbuttonref = useRef();
     const addbuttonref = useRef();
-    const productNameref = useRef();
-    const descriptionref = useRef();
     const { issellerAuth, setissellerAuth, setsellerredirect, setisProductAdded, backend_url } = useContext(AppContext);
     const [poster, setposter] = useState('');
     const [active, setactive] = useState(0);
@@ -83,9 +81,6 @@ const AddProduct = () => {
             setpopupMessage("Product name cannot exceed 70 letters!!");
             setisPopup(true);
         };
-        const textarea = e.target;
-        textarea.style.height = "auto"; // Reset height to auto to calculate the new scrollHeight
-        textarea.style.height = `${textarea.scrollHeight + 10}px`;
     };
 
     const changedescription = (e) => {
@@ -97,26 +92,7 @@ const AddProduct = () => {
             setpopupMessage("Description cannot exceed 1000 letters!!");
             setisPopup(true);
         };
-        const textarea = e.target;
-        textarea.style.height = "auto"; // Reset height to auto to calculate the new scrollHeight
-        textarea.style.height = `${textarea.scrollHeight + 10}px`;
     };
-
-    useEffect(() => {
-        if (descriptionref.current) {
-            const textarea = descriptionref.current;
-            textarea.style.height = "auto";
-            textarea.style.height = `${textarea.scrollHeight + 10}px`;
-        };
-    }, [description, loading]);
-
-    useEffect(() => {
-        if (productNameref.current) {
-            const textarea = productNameref.current;
-            textarea.style.height = "auto";
-            textarea.style.height = `${textarea.scrollHeight + 10}px`;
-        };
-    }, [productName, loading]);
 
     const changeprice = (e) => {
         const value = e.target.value;
@@ -515,12 +491,12 @@ const AddProduct = () => {
                 </div>
                 <div className='sm:p-8 p-4 md:w-[40rem] md:pt-[5rem]'>
                     <div className='flex items-end'>
-                        <textarea ref={productNameref} type='text' value={productName} onChange={(e) => { changeproductName(e) }} placeholder='Enter product name' className='addProducttextarea sm:text-3xl text-2xl font-bold border outline-none rounded-xl overflow-auto w-full px-1'></textarea>
+                        <textarea rows={2} type='text' value={productName} onChange={(e) => { changeproductName(e) }} placeholder='Enter product name' className='addProducttextarea sm:text-3xl text-2xl font-bold border outline-none rounded-xl overflow-auto w-full px-1'></textarea>
                     </div>
                     <div className='italic '>Sold by: {seller.brandName}</div>
                     <div className='sm:text-3xl text-2xl my-8'>Rs.<input type='text' value={price} onChange={(e) => { changeprice(e) }} className='w-[10rem] outline-none px-2 border rounded-xl' placeholder='Price' /></div>
                     <div className='font-semibold'>Description:</div>
-                    <textarea ref={descriptionref} value={description} onChange={(e) => { changedescription(e) }} placeholder='Enter product description (max 1000 letters)' className='addProducttextarea whitespace-pre-wrap border-2 outline-none w-full h-auto text-wrap border-green-700 rounded-xl p-4'></textarea>
+                    <textarea rows={10} value={description} onChange={(e) => { changedescription(e) }} placeholder='Enter product description (max 1000 letters)' className='addProducttextarea whitespace-pre-wrap border-2 outline-none w-full h-auto text-wrap border-green-700 rounded-xl p-4'></textarea>
                     <div className='font-semibold'>Listed on: {new Date().getDate()} {new Date().toLocaleString('en-US', { month: 'long' })} {new Date().getFullYear()}</div>
                     <div className='font-semibold mt-8'>Sold by:</div>
                     <div className='border-2 border-green-700 rounded-xl py-4 sm:px-4 px-2 flex items-start'>

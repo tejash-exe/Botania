@@ -643,7 +643,7 @@ const UpdateProduct = () => {
                     </div>
                     <div className='mb-8 mt-2'>Note - Select this only if you want to make your product unavailable. After making it unavailable you cannot edit this product nor you can sell this product on botania. This product will be marked sold.</div>
                     <div className='font-semibold'>Description:</div>
-                    <textarea value={description} rows={7} onChange={(e) => { changedescription(e) }} placeholder='Enter product description (max 1000 letters)' className='addProducttextarea whitespace-pre-wrap border-2 outline-none w-full h-auto text-wrap border-green-700 rounded-xl p-4'></textarea>
+                    <textarea value={description} rows={10} onChange={(e) => { changedescription(e) }} placeholder='Enter product description (max 1000 letters)' className='addProducttextarea whitespace-pre-wrap border-2 outline-none w-full h-auto text-wrap border-green-700 rounded-xl p-4'></textarea>
                     <div className='font-semibold'>Listed on: {formattedDate}</div>
                     <div className='font-semibold mt-8'>Sold by:</div>
                     <div className='border-2 border-green-700 rounded-xl py-4 sm:px-4 px-2 flex items-start'>

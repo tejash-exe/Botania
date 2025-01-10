@@ -65,18 +65,7 @@ const OrderDetails = () => {
             setpopupMessage("Description cannot exceed 1000 letters!!");
             setisPopup(true);
         };
-        const textarea = e.target;
-        textarea.style.height = "auto"; // Reset height to auto to calculate the new scrollHeight
-        textarea.style.height = `${textarea.scrollHeight + 10}px`;
     };
-
-    useEffect(() => {
-        if (reviewTextref.current) {
-            const textarea = reviewTextref.current;
-            textarea.style.height = "auto"; // Reset height to auto to calculate the new scrollHeight
-            textarea.style.height = `${textarea.scrollHeight + 10}px`;
-        };
-    }, [reviewText, isUpdatereview]);
 
     const changeRating = (value) => {
         setrating(value);
@@ -641,7 +630,7 @@ const OrderDetails = () => {
                                 {(pictures.length < 5) && <label disabled={loading} htmlFor="profileimage" className='border-2 cursor-pointer w-[3rem] text-xl text-gray-300 hover:text-gray-400 h-[3rem] rounded-md flex justify-center hover:border-gray-400 duration-300 items-center'><FontAwesomeIcon icon={faPlus} /></label>}
                                 <input disabled={loading} ref={addimageref} onChange={(e) => { onImageChange(e) }} type='file' accept='image/*' id='profileimage' className='hidden'></input>
                             </div>
-                            <textarea ref={reviewTextref} value={reviewText} onChange={(e) => { changereviewText(e) }} placeholder='Enter product review (max 1000 letters)' className='border-2 outline-none rounded-lg mt-3 px-1 text-sm sm:text-base addProducttextarea w-full'></textarea>
+                            <textarea rows={5} value={reviewText} onChange={(e) => { changereviewText(e) }} placeholder='Enter product review (max 1000 letters)' className='border-2 outline-none rounded-lg mt-3 px-1 text-sm sm:text-base addProducttextarea w-full'></textarea>
                             <div className='font-semibold'>Reviewed on : {new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'long', year: 'numeric' })}</div>
                             <button onClick={addReview} className='bg-green-700 duration-300 active:scale-95 text-white px-4 py-3  text-sm sm:text-base rounded-lg mt-2 hover:bg-green-800'>Add review</button>
                         </div>
@@ -698,7 +687,7 @@ const OrderDetails = () => {
                                 {(pictures.length < 5) && <label disabled={loading} htmlFor="profileimage" className='border-2 cursor-pointer w-[3rem] text-xl border-green-700/40 text-green-700/40 hover:text-green-700 h-[3rem] rounded-md flex justify-center hover:border-green-700 hover:bg-green-50 duration-300 items-center'><FontAwesomeIcon icon={faPlus} /></label>}
                                 <input disabled={loading} ref={addimageref} onChange={(e) => { onImageChange(e) }} type='file' accept='image/*' id='profileimage' className='hidden'></input>
                             </div>
-                            <textarea ref={reviewTextref} value={reviewText} onChange={(e) => { changereviewText(e) }} placeholder='Enter product review (max 1000 letters)' className='border-2 outline-none rounded-lg mt-3 text-sm sm:text-base px-1 whitespace-pre-wrap addProducttextarea w-full'></textarea>
+                            <textarea rows={5} value={reviewText} onChange={(e) => { changereviewText(e) }} placeholder='Enter product review (max 1000 letters)' className='border-2 outline-none rounded-lg mt-3 text-sm sm:text-base px-1 whitespace-pre-wrap addProducttextarea w-full'></textarea>
                             <div className='font-semibold text-sm sm:text-base'>Reviewed on : {new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'long', year: 'numeric' })}</div>
                             <div className='flex'>
                                 <button onClick={updateReview} className='bg-green-700 duration-300 active:scale-95 text-white px-4 py-3 rounded-lg mt-2 hover:bg-green-800'>Update review</button>
