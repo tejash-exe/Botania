@@ -532,14 +532,14 @@ const AddProduct = () => {
                 <button ref={discardbuttonref} onClick={discardbuttonclick} className='sm:px-5 px-4 py-3 mr-6 hover:bg-gray-100 duration-200 active:scale-95 bg-gray-50 border rounded-xl text-gray-800'>Discard product</button>
                 <button ref={addbuttonref} onClick={addbuttonclick} className='sm:px-5 px-4 py-3 sm:mr-16 mr-4 border border-green-700 hover:border-green-800 hover:bg-green-800 duration-200 active:scale-95 bg-green-700 rounded-xl text-white'>Add product</button>
             </div>}
-            {!issellerAuth && <div className="py-[4rem] flex justify-center items-center h-screen">
+            {!issellerAuth && !loading && !error && <div className="py-[4rem] flex justify-center items-center h-screen">
                 <div className='backdrop-blur-sm shadow-lg mx-2 text-gray-800 bg-white/50 py-8 px-12 rounded-xl'>
                     <div className='text-2xl text-center my-2'>Please login to continue!</div>
                     <div className='flex justify-center items-center'><button onClick={gotologin} className='hover:scale-105 text-xl backdrop-blur-sm my-2 mx-7 px-4 py-3 rounded-md bg-green-700/60 hover:bg-green-700/80 text-white duration-200'>Log in</button></div>
                 </div>
                 <div className='-z-10 absolute top-0 overflow-hidden'><img className=' h-screen w-screen object-cover' src="/Flowers1.jpg" alt="" /></div>
             </div>}
-            {!isActivated && <div className="py-[4rem] flex justify-center items-center h-screen">
+            {!isActivated && !loading && !error && <div className="py-[4rem] flex justify-center items-center h-screen">
                 <div className='backdrop-blur-sm shadow-lg mx-2 text-gray-800 bg-white/50 py-8 px-12 rounded-xl'>
                     <div className='text-2xl text-center my-2'>Please activate your account to continue!</div>
                     <div className='flex justify-center items-center'><button onClick={gotoProfile} className='hover:scale-105 text-xl backdrop-blur-sm my-2 mx-7 px-4 py-3 rounded-md bg-green-700/60 hover:bg-green-700/80 text-white duration-200'>Go to Profile</button></div>

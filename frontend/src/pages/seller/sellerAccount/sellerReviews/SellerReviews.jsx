@@ -230,7 +230,7 @@ const SellerReviews = () => {
                     </div>
                 </div>
             </div>}
-            {issellerAuth && (isActivated == true) && !loading && !error && <div className='pt-[4rem] sm:pb-0 pb-[4rem] h-screen overflow-hidden'>
+            {issellerAuth && isActivated && !loading && !error && <div className='pt-[4rem] sm:pb-0 pb-[4rem] h-screen overflow-hidden'>
                 <div ref={scrollableRef} className='flex justify-center h-full overflow-auto'>
                     <div className='md:w-[50rem] sm:w-[37rem] w-full mx-4 '>
                         <div className='flex justify-between items-center mt-4 rounded-full border-2 border-green-700 px-4 sm:px-10 py-4'>
@@ -283,14 +283,14 @@ const SellerReviews = () => {
             {isVisible && <div onClick={scrollToTop} className='fixed z-[101] sm:bottom-10 bottom-[5rem] sm:right-10 right-[1rem] bg-green-700 hover:bg-green-700/90 duration-200 active:scale-95 rounded-full p-3  cursor-pointer flex justify-center items-center'>
                 <FontAwesomeIcon className='w-6 h-6 text-white' icon={faArrowUp} />
             </div>}
-            {!issellerAuth && <div className="py-[4rem] flex justify-center items-center h-screen">
+            {!issellerAuth && !loading && !error && <div className="py-[4rem] flex justify-center items-center h-screen">
                 <div className='backdrop-blur-sm shadow-lg mx-2 text-gray-800 bg-white/50 py-8 px-12 rounded-xl'>
                     <div className='text-2xl text-center my-2'>Please login to continue!</div>
                     <div className='flex justify-center items-center'><button onClick={gotologin} className='hover:scale-105 text-xl backdrop-blur-sm my-2 mx-7 px-4 py-3 rounded-md bg-green-700/60 hover:bg-green-700/80 text-white duration-200'>Log in</button></div>
                 </div>
                 <div className='-z-10 absolute top-0 overflow-hidden'><img className=' h-screen w-screen object-cover' src="/Flowers1.jpg" alt="" /></div>
             </div>}
-            {(isActivated == false) && <div className="py-[4rem] flex justify-center items-center h-screen">
+            {!isActivated && !loading && !error && <div className="py-[4rem] flex justify-center items-center h-screen">
                 <div className='backdrop-blur-sm shadow-lg mx-2 text-gray-800 bg-white/50 py-8 px-12 rounded-xl'>
                     <div className='text-2xl text-center my-2'>Please activate your account to continue!</div>
                     <div className='flex justify-center items-center'><button onClick={gotoProfile} className='hover:scale-105 text-xl backdrop-blur-sm my-2 mx-7 px-4 py-3 rounded-md bg-green-700/60 hover:bg-green-700/80 text-white duration-200'>Go to Profile</button></div>

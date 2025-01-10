@@ -273,7 +273,7 @@ const ChangeSelleraddress = () => {
                         </button>
                     </form>
                 </div>}
-                {!issellerAuth && <div className='border-2 border-green-700 rounded-xl p-6 '>
+                {!issellerAuth && !loading && <div className='border-2 border-green-700 rounded-xl p-6 '>
                     <div className='text-xl'>Please login to continue!</div>
                     <div className='flex justify-center mt-4'>
                         <button onClick={handleback} className='bg-green-700 rounded-lg text-white px-4 py-3 duration-200 active:scale-95'>Go back</button>
