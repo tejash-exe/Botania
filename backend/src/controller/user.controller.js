@@ -578,7 +578,9 @@ const orderConfirmation = async (req, res) => {
             notes: {
                 userId: user._id,
             },
-        });
+        }).catch((err) => console.log(err));
+
+        // if(!order) throw new Error("Cannot able to generate reciept!");
 
         const fetchUser = await User.findById(user._id);
         if (!fetchUser) throw new Error("Cannot fetch user!!");
