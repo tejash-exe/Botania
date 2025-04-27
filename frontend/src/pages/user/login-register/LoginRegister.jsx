@@ -127,6 +127,7 @@ const LoginRegister = () => {
     if (isAuth == true) {
       const tempRedirect = redirect;
       setredirect('/user/searchresults/%20');
+      localStorage.setItem("redirect", ('/user/searchresults/%20'));
       navigate(tempRedirect);
     }
   }, [isAuth]);
