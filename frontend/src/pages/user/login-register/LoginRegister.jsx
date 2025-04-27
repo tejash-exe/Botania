@@ -11,7 +11,7 @@ import Notification from '../../../components/Notification';
 const LoginRegister = () => {
 
   const navigate = useNavigate();
-  const { isAuth, setisAuth, setname, setemail, setprofilePicture, setaddress, setcart, setwishlist, redirect, backend_url } = useContext(AppContext);
+  const { isAuth, setisAuth, setname, setemail, setprofilePicture, setaddress, setcart, setwishlist, redirect, setredirect, backend_url } = useContext(AppContext);
   const [login, setlogin] = useState(true);
   const [nameinput, setnameinput] = useState("");
   const [emailinput, setemailinput] = useState("");
@@ -125,7 +125,9 @@ const LoginRegister = () => {
   //Handle back
   useEffect(() => {
     if (isAuth == true) {
-      navigate(redirect);
+      const tempRedirect = redirect;
+      setredirect('/user/searchresults/%20');
+      navigate(tempRedirect);
     }
   }, [isAuth]);
 
