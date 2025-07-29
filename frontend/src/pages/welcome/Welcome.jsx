@@ -8,7 +8,7 @@ const Welcome = () => {
   const navigate = useNavigate();
 
   const gotoUser = () => {
-    navigate('/user/login-register');
+    navigate('/user/searchresults/%20');
   };
 
   const gotoSeller = () => {
