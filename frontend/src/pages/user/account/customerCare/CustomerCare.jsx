@@ -28,7 +28,7 @@ const CustomerCare = () => {
           <div className='flex justify-center flex-wrap'>
             <div className='flex items-center w-[18rem] '>
               <div className='m-2'><FontAwesomeIcon className='w-6 h-6' icon={faLinkedin} /></div>
-              <div><a target='_blank' href='https://www.linkedin.com/in/aditya-choudhary-31137b291/'><span className=''>LinkedIn</span> - Aditya Choudhary</a></div>
+              <div><a target='_blank' href='https://www.linkedin.com/in/aditya-choudhary--/'><span className=''>LinkedIn</span> - Aditya Choudhary</a></div>
             </div>
             <div className='flex items-center w-[18rem] '>
               <div className='m-2'><FontAwesomeIcon className='w-6 h-6' icon={faGithub} /></div>
