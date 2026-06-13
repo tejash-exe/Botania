@@ -76,8 +76,8 @@ const Welcome = () => {
           <div className='md:max-w-[50rem] mx-4'>
             <div>By using this website, you automatically agree to our <Link target='_blank' to='https://merchant.razorpay.com/policy/PN2MkT4qFlPZzF/terms' className='text-blue-500'>Terms and Conditions</Link>, <Link target='_blank' to='https://merchant.razorpay.com/policy/PN2MkT4qFlPZzF/refund' className='text-blue-500'>Refund Policy</Link>, <Link target='_blank' to='https://merchant.razorpay.com/policy/PN2MkT4qFlPZzF/shipping' className='text-blue-500'>Shipping Policy</Link>, and <Link target='_blank' to='https://drive.google.com/file/d/1p5QMw-GU2e-FUJBX9bdoS-9h2FHHwHwo/view?usp=sharing' className='text-blue-500'>Privacy Policy</Link>.</div>
             <div className='mt-4 mb-2 text-lg'><FontAwesomeIcon className='mr-2' icon={faHeadset} /> Contact us at :</div>
-            <div className='mt-1'><FontAwesomeIcon className='mr-2 w-4 h-4' icon={faPhone} />+91-6201010626</div>
-            <div className='mt-1'><FontAwesomeIcon className='mr-2 w-4 h-4' icon={faEnvelope} />tejash835274@gmail.com</div>
+            <div className='mt-1'><FontAwesomeIcon className='mr-2 w-4 h-4' icon={faPhone} />+91-9876543210</div>
+            <div className='mt-1'><FontAwesomeIcon className='mr-2 w-4 h-4' icon={faEnvelope} />abcd@123@gmail.com</div>
             <div className='mt-1'><FontAwesomeIcon className='mr-2 w-4 h-4' icon={faLocationDot} />Hostel-J, NIT Jamshedpur, Adityapur, Jamshedpur, Jharkhand - 831014</div>
           </div>
         </div>
