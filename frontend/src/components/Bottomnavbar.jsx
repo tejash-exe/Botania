@@ -18,7 +18,7 @@ const Bottomnavbar = () => {
         <div className='bg-red-600 absolute w-3 h-3 rounded-full top-[0.4rem] right-[0.6rem] text-[8px] text-white flex items-center justify-center'><div>{wishlist.length}</div></div>
       </NavLink>
       <NavLink className={({ isActive }) => "p-4 flex duration-200 rounded-full m-2" + (isActive ? ' bg-pink-600/70 text-white ' : ' hover:bg-green-700/30')} to="/user/account/profile"><FontAwesomeIcon className='w-4 h-4' icon={faUser} /></NavLink>
-      <NavLink className={({ isActive }) => "p-4 flex duration-200 rounded-full m-2" + (isActive ? ' bg-green-700 text-white ' : ' hover:bg-green-700/30')} to="/user/account/customer-care"><FontAwesomeIcon className='w-4 h-4' icon={faHeadset} /></NavLink>
+      {/*<NavLink className={({ isActive }) => "p-4 flex duration-200 rounded-full m-2" + (isActive ? ' bg-green-700 text-white ' : ' hover:bg-green-700/30')} to="/user/account/customer-care"><FontAwesomeIcon className='w-4 h-4' icon={faHeadset} /></NavLink>*/}
     </div>
   )
 };
